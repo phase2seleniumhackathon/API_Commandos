@@ -2721,6 +2721,74 @@
 										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
 									},
 									"response": []
+								},
+								{
+									"name": "UpdateInvalidState",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "fc9e6e49-62b2-46be-a12c-29a7f1ad0927",
+												"exec": [
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrState = generateRandomName(3);+\"12\" // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_state_address\", usrState);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"State:\", usrState);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "638f4849-bc79-4f9d-8e8c-8f2b1288f576",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n        \"userFirstName\": \"Asdf\",\r\n        \"userLastName\": \"galq\",\r\n        \"userContactNumber\": 1345254321,\r\n        \"userEmailId\": \"ab@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"p1-34\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"{{user_state_address}}\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "96e74c2e-7874-4cea-8304-f02c0ba384d6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
 								}
 							],
 							"id": "e9d66401-e6a9-4e83-add4-d583506b1a90",
