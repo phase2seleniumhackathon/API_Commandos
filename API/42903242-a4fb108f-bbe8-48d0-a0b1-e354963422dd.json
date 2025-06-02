@@ -2929,7 +2929,18 @@
 									},
 									"request": {
 										"method": "GET",
-										"header": []
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuser/{{uID}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuser",
+												"{{uID}}"
+											]
+										}
 									},
 									"response": []
 								},
