@@ -3363,6 +3363,15 @@
 							"request": {
 								"method": "PUT",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"userFirstName\": \"Asdf\",\r\n        \"userLastName\": \"galq\",\r\n        \"userContactNumber\": 1345254321,\r\n        \"userEmailId\": \"ab@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"p1-34\",\r\n            \"street\": \"Hudson\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"{{user_country_address}}\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "{{baseUrl}}/uap/updateuser/{{uID}}",
 									"host": [
