@@ -2922,7 +2922,31 @@
 									"response": []
 								}
 							],
-							"id": "42903242-e9d66401-e6a9-4e83-add4-d583506b1a90"
+							"id": "42903242-e9d66401-e6a9-4e83-add4-d583506b1a90",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d5cc227a-c18f-49c4-a425-5bfa6843ae96",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"pm.collectionVariables.set(\"uID\", 22161);"
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9de9484f-37ab-4501-bc27-43b27bb2cdc6",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
 						}
 					],
 					"id": "42903242-09b06910-138d-4d00-a19e-d39c55a2c7d1",
