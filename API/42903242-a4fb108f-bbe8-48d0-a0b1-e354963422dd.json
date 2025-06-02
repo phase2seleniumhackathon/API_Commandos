@@ -3194,7 +3194,7 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
+								"method": "PUT",
 								"header": [],
 								"url": {
 									"raw": "{{baseUrl}}/uap/updateuser/{{uID}}",
