@@ -3340,7 +3340,7 @@
 											"}\r",
 											"\r",
 											"// Generate names\r",
-											"var usrCountry = generateRandomName(3); // e.g., \"Zogmir\"\r",
+											"var usrCountry = generateRandomName(3)+\"12\"; // e.g., \"Zogmir\"\r",
 											"\r",
 											"// Save to environment\r",
 											"\r",
