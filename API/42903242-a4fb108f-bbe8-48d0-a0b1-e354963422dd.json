@@ -3320,7 +3320,7 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "UpdateInvaliCountry",
 							"id": "42903242-d1fc2f09-40ee-438c-b69e-b48f25f1bd12",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
