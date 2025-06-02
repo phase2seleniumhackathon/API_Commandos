@@ -2742,7 +2742,7 @@
 													"}\r",
 													"\r",
 													"// Generate names\r",
-													"var usrState = generateRandomName(3);+\"12\" // e.g., \"Zogmir\"\r",
+													"var usrState = generateRandomName(3)+\"12\"; // e.g., \"Zogmir\"\r",
 													"\r",
 													"// Save to environment\r",
 													"\r",
@@ -2775,18 +2775,6 @@
 											}
 										},
 										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
-									},
-									"response": []
-								},
-								{
-									"name": "New Request",
-									"id": "96e74c2e-7874-4cea-8304-f02c0ba384d6",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": []
 									},
 									"response": []
 								}
@@ -2874,14 +2862,50 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "UpdateInvaliCountry",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "6e98d25d-c79a-41ba-8302-270484b27b4b",
+										"exec": [
+											"\r",
+											"// Before Request\r",
+											"// Function to generate a random alphabetic string of given length\r",
+											"function generateRandomName(length) {\r",
+											"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"    let result = '';\r",
+											"    for (let i = 0; i < length; i++) {\r",
+											"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"    }\r",
+											"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"}\r",
+											"\r",
+											"// Generate names\r",
+											"var usrCountry = generateRandomName(3)+\"12\"; // e.g., \"Zogmir\"\r",
+											"\r",
+											"// Save to environment\r",
+											"\r",
+											"pm.environment.set(\"user_country_address\", usrCountry);\r",
+											"\r",
+											"// Debug output\r",
+											"console.log(\"Country:\", usrCountry);\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d1fc2f09-40ee-438c-b69e-b48f25f1bd12",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "PUT",
+								"header": [],
+								"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
 							},
 							"response": []
 						}
