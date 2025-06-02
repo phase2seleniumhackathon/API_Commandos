@@ -3161,7 +3161,7 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "UpdateInvalidState",
 									"id": "42903242-638f4849-bc79-4f9d-8e8c-8f2b1288f576",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
