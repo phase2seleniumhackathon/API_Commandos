@@ -2512,7 +2512,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "    {\r\n        \"userFirstName\": \"Ertqhq\",\r\n        \"userLastName\": \"Odfkutrx\",\r\n        \"userContactNumber\": 9472653296,\r\n        \"userEmailId\": \"jim9922246748@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"pl-04\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    ",
+											"raw": "    {\r\n        \"userFirstName\": \"{{user_first_name}}\",\r\n        \"userLastName\": \"Odfkutrx\",\r\n        \"userContactNumber\": 9472653296,\r\n        \"userEmailId\": \"jim9922246748@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"pl-04\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2522,9 +2522,67 @@
 										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
 									},
 									"response": []
+								},
+								{
+									"name": "UpdateUserWithInvalidLastName",
+									"id": "5cf542df-4baf-4372-8f96-8725e01f5f7d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n        \"userFirstName\": \"{{user_first_name}}\",\r\n        \"userLastName\": \"Odfkutrx\",\r\n        \"userContactNumber\": 9472653296,\r\n        \"userEmailId\": \"jim9922246748@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"pl-04\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "60f93a51-facc-4331-846d-5582c953f42c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
 								}
 							],
-							"id": "e9d66401-e6a9-4e83-add4-d583506b1a90"
+							"id": "e9d66401-e6a9-4e83-add4-d583506b1a90",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d5cc227a-c18f-49c4-a425-5bfa6843ae96",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"pm.collectionVariables.set(\"uID\", 22161);"
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9de9484f-37ab-4501-bc27-43b27bb2cdc6",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
 						}
 					],
 					"id": "09b06910-138d-4d00-a19e-d39c55a2c7d1",
