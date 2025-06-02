@@ -3203,6 +3203,15 @@
 									"request": {
 										"method": "PUT",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Bob\",\r\n    \"userContactNumber\": 9302520099,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"Rae\",\r\n        \"state\": \"{{user_state_address}}\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{baseUrl}}/uap/updateuser/{{uID}}",
 											"host": [
