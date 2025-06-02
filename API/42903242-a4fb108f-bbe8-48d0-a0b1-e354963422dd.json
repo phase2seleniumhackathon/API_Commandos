@@ -3116,7 +3116,7 @@
 													"// Before Request\r",
 													"\r",
 													"// Generate phone number: starts with 9 + 9 random digits\r",
-													"let randomPlot = \"p1\" +\"-\"+Math.random().toString().substring(2, 4);\r",
+													"let randomPlot = \"p1\" +\"*\"+Math.random().toString().substring(2, 4);\r",
 													"\r",
 													"// Save to environment\r",
 													"pm.environment.set(\"random_plot\", randomPlot);\r",
