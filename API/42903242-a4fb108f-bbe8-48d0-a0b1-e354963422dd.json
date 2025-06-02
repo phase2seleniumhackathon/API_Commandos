@@ -2922,7 +2922,7 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "UpdateUserWithInvalidLastName",
 									"id": "42903242-5cf542df-4baf-4372-8f96-8725e01f5f7d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
