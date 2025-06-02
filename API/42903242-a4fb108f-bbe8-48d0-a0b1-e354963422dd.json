@@ -3361,8 +3361,19 @@
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/uap/updateuser/{{uID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"updateuser",
+										"{{uID}}"
+									]
+								}
 							},
 							"response": []
 						}
