@@ -3162,6 +3162,40 @@
 								},
 								{
 									"name": "UpdateInvalidState",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "fc9e6e49-62b2-46be-a12c-29a7f1ad0927",
+												"exec": [
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrState = generateRandomName(3); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_state_address\", usrState);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"State:\", usrState);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "42903242-638f4849-bc79-4f9d-8e8c-8f2b1288f576",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
