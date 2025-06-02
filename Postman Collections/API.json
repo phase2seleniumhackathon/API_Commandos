@@ -2857,6 +2857,49 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ef28ecb1-32bb-4520-bd24-fa3af6fdc6a1",
+										"exec": [
+											"var random = Math.random().toString().substring(2, 12);\r",
+											"// Function to generate a random alphabetic string of given length\r",
+											"function generateRandomName(length) {\r",
+											"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"    let result = '';\r",
+											"    for (let i = 0; i < length; i++) {\r",
+											"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"    }\r",
+											"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"}\r",
+											"\r",
+											"// Generate names\r",
+											"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+											"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+											"\r",
+											"// Use the random string for other fields\r",
+											"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+											"\r",
+											"// Generate phone number: starts with 9 + 9 random digits\r",
+											"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+											"\r",
+											"// Save to environment\r",
+											"pm.environment.set(\"random\", random);\r",
+											"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+											"pm.environment.set(\"user_last_name\", usrLastName);\r",
+											"pm.environment.set(\"user_email\", useremail);\r",
+											"pm.environment.set(\"random_phone\", randomPhone);\r",
+											"\r",
+											"// Debug output\r",
+											"console.log(\"First Name:\", usrFirstName);\r",
+											"console.log(\"Last Name:\", usrLastName);\r",
+											"console.log(\"Email:\", useremail);\r",
+											"console.log(\"Phone Number:\", randomPhone);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"id": "f15ed5f5-4b70-438a-b14a-efe44aec8d6f",
@@ -2874,7 +2917,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"userContactNumber\": 9718787114,\r\n  \"userEmailId\": \"Nayak@gamil.com\",\r\n  \"userFirstName\": \"Ram\",\r\n  \"userLastName\": \"DAS\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"p2-55\",\r\n    \"street\": \"Milton\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15742\r\n  }\r\n}",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
