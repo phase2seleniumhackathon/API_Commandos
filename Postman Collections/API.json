@@ -2545,13 +2545,13 @@
 													"\r",
 													"// Generate names\r",
 													"var usrLastName = generateRandomName(6); // e.g., \"Zogmir\"\r",
-													"usrLastName = usrFirstName+\"12\";\r",
+													"usrLastName = usrLastName+\"12\";\r",
 													"// Save to environment\r",
 													"\r",
-													"pm.environment.set(\"user_first_name\", usrLastName);\r",
+													"pm.environment.set(\"user_last_name\", usrLastName);\r",
 													"\r",
 													"// Debug output\r",
-													"console.log(\"First Name:\", usrLastName);\r",
+													"console.log(\"Last Name:\", usrLastName);\r",
 													"\r",
 													""
 												],
@@ -2581,8 +2581,69 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "UpdateUserWithInvalidEmailId",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "08a8de76-64cc-4517-b42a-edb506242dd4",
+												"exec": [
+													"// Before Request\r",
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"\r",
+													"// Use the random string for other fields\r",
+													"var useremail = \"jim\" + random +\"%^\"+ \"@gmail.com\";\r",
+													"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_email\", useremail);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Email:\", useremail);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "60f93a51-facc-4331-846d-5582c953f42c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n        \"userFirstName\": \"Asdf\",\r\n        \"userLastName\": \"{{user_last_name}}\",\r\n        \"userContactNumber\": 9472653296,\r\n        \"userEmailId\": \"jim9922246748@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"pl-04\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "28198f94-c9e3-4f2d-856b-0291f706e655",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "c94b130f-fc3b-458b-b9b2-04ab3d0c25ed",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
