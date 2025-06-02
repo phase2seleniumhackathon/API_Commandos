@@ -2946,10 +2946,10 @@
 													"usrLastName = usrFirstName+\"12\";\r",
 													"// Save to environment\r",
 													"\r",
-													"pm.environment.set(\"user_first_name\", usrLastName);\r",
+													"pm.environment.set(\"user_last_name\", usrLastName);\r",
 													"\r",
 													"// Debug output\r",
-													"console.log(\"First Name:\", usrLastName);\r",
+													"console.log(\"Last Name:\", usrLastName);\r",
 													"\r",
 													""
 												],
