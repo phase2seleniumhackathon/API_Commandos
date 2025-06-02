@@ -3320,7 +3320,7 @@
 							"response": []
 						},
 						{
-							"name": "UpdateInvaliCountry",
+							"name": "UpdateInvalidCountry",
 							"event": [
 								{
 									"listen": "prerequest",
@@ -3383,6 +3383,30 @@
 										"{{uID}}"
 									]
 								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "42903242-6a551fef-1f5f-474b-aa0e-23a52657d200",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "42903242-f8172301-b2c8-4446-a973-46bb27e1c456",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
