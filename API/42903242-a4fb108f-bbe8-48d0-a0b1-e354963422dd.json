@@ -3293,6 +3293,49 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ef28ecb1-32bb-4520-bd24-fa3af6fdc6a1",
+										"exec": [
+											"var random = Math.random().toString().substring(2, 12);\r",
+											"// Function to generate a random alphabetic string of given length\r",
+											"function generateRandomName(length) {\r",
+											"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"    let result = '';\r",
+											"    for (let i = 0; i < length; i++) {\r",
+											"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"    }\r",
+											"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"}\r",
+											"\r",
+											"// Generate names\r",
+											"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+											"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+											"\r",
+											"// Use the random string for other fields\r",
+											"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+											"\r",
+											"// Generate phone number: starts with 9 + 9 random digits\r",
+											"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+											"\r",
+											"// Save to environment\r",
+											"pm.environment.set(\"random\", random);\r",
+											"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+											"pm.environment.set(\"user_last_name\", usrLastName);\r",
+											"pm.environment.set(\"user_email\", useremail);\r",
+											"pm.environment.set(\"random_phone\", randomPhone);\r",
+											"\r",
+											"// Debug output\r",
+											"console.log(\"First Name:\", usrFirstName);\r",
+											"console.log(\"Last Name:\", usrLastName);\r",
+											"console.log(\"Email:\", useremail);\r",
+											"console.log(\"Phone Number:\", randomPhone);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"id": "42903242-f15ed5f5-4b70-438a-b14a-efe44aec8d6f",
