@@ -3225,18 +3225,6 @@
 										}
 									},
 									"response": []
-								},
-								{
-									"name": "UnpadteInvalidStreet",
-									"id": "42903242-96e74c2e-7874-4cea-8304-f02c0ba384d6",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": []
-									},
-									"response": []
 								}
 							],
 							"id": "42903242-e9d66401-e6a9-4e83-add4-d583506b1a90",
