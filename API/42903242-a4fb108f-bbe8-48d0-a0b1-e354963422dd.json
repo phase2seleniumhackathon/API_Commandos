@@ -2989,7 +2989,7 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "UpdateUserWithInvalidEmailId",
 									"id": "42903242-60f93a51-facc-4331-846d-5582c953f42c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
