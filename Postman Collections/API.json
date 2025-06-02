@@ -2679,13 +2679,46 @@
 								},
 								{
 									"name": "UpdateInvalidPlotNumber",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "a82cf8cd-81c5-494e-9448-da4b87b19d00",
+												"exec": [
+													"// Before Request\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPlot = \"p1\" +\"*\"+Math.random().toString().substring(2, 4);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random_plot\", randomPlot);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Plot Number:\", randomPlot);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "c94b130f-fc3b-458b-b9b2-04ab3d0c25ed",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "GET",
-										"header": []
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n        \"userFirstName\": \"Asdf\",\r\n        \"userLastName\": \"galq\",\r\n        \"userContactNumber\": 1345254321,\r\n        \"userEmailId\": \"ab@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"{{random_plot}}\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
 									},
 									"response": []
 								}
