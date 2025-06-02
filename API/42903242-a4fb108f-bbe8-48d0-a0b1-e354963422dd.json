@@ -2860,7 +2860,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "a2d1dced-3207-4f91-83ed-b04e544500a3",
+												"id": "329925e0-f4fd-49c5-9e38-6b0f9f656ca7",
 												"exec": [
 													"\r",
 													"// Before Request\r",
@@ -2875,8 +2875,8 @@
 													"}\r",
 													"\r",
 													"// Generate names\r",
-													"var usrFirstName = generateRandomName(6)+\"12\"; // e.g., \"Zogmir\"\r",
-													"\r",
+													"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"usrFirstName = usrFirstName+\"12\";\r",
 													"// Save to environment\r",
 													"\r",
 													"pm.environment.set(\"user_first_name\", usrFirstName);\r",
