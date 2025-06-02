@@ -2142,7 +2142,7 @@
 											"script": {
 												"id": "f6590661-38d5-486c-9c89-e72217a39959",
 												"exec": [
-													"pm.collectionVariables.set(\"uID\", 22162);"
+													"pm.collectionVariables.set(\"uID\", 22161);"
 												],
 												"type": "text/javascript",
 												"packages": {}
