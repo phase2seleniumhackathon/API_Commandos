@@ -3353,7 +3353,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"userContactNumber\": 9718787114,\r\n  \"userEmailId\": \"Nayak@gamil.com\",\r\n  \"userFirstName\": \"Ram\",\r\n  \"userLastName\": \"DAS\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"p2-55\",\r\n    \"street\": \"Milton\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15742\r\n  }\r\n}",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
