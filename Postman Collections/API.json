@@ -2748,6 +2748,65 @@
 									}
 								}
 							]
+						},
+						{
+							"name": "UpdateInvalidStreet",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "83fcda91-7c61-49cb-857d-da573b670814",
+										"exec": [
+											"// Before Request\r",
+											"// Function to generate a random alphabetic string of given length\r",
+											"function generateRandomName(length) {\r",
+											"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"    let result = '';\r",
+											"    for (let i = 0; i < length; i++) {\r",
+											"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"    }\r",
+											"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"}\r",
+											"\r",
+											"// Generate names\r",
+											"var usrStreet = generateRandomName(4)+\"45\"; // e.g., \"Zogmir\"\r",
+											"\r",
+											"// Save to environment\r",
+											"\r",
+											"pm.environment.set(\"user_street_address\", usrStreet);\r",
+											"\r",
+											"// Debug output\r",
+											"console.log(\"Street:\", usrStreet);\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2b665a8c-a919-44f0-87f6-eef0902ac1d2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "d1fc2f09-40ee-438c-b69e-b48f25f1bd12",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
 					"id": "09b06910-138d-4d00-a19e-d39c55a2c7d1",
