@@ -1,0 +1,3270 @@
+{
+	"info": {
+		"_postman_id": "a4fb108f-bbe8-48d0-a0b1-e354963422dd",
+		"name": "USER API",
+		"description": "User API Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "uap",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "username",
+							"item": [
+								{
+									"name": "GetByuserFirstName",
+									"item": [
+										{
+											"name": "get User By First Name",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"id": "a7faeca1-5e79-436a-be8e-662083fbdd56",
+														"exec": [
+															"pm.collectionVariables.set(\"uFirstName\", \"Numpy\");"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "138f81a6-e78b-403d-a709-c08df8c94a5d",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/uap/users/username/{{uFirstName}}"
+											},
+											"response": [
+												{
+													"id": "f37634e5-e20e-4405-b4a8-52a2e6d2cef8",
+													"name": "default response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/uap/users/username/:userFirstName",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"uap",
+																"users",
+																"username",
+																":userFirstName"
+															],
+															"variable": [
+																{
+																	"key": "userFirstName"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "[\n  {\n    \"userContactNumber\": -31288368,\n    \"userEmailId\": \"pSjmAFHnFM9.AZI6-tVbkMp_u_MLJ0uX.NO.v9Js7dniWur-pK4d@y1zEsWgB.XIWvhboghevh\",\n    \"userFirstName\": \"Kqqcku\",\n    \"userLastName\": \"nE\",\n    \"userId\": 61373153,\n    \"creationTime\": \"1966-10-13T00:22:37.630Z\",\n    \"lastModTime\": \"1987-10-11T20:23:11.282Z\",\n    \"userAddress\": {\n      \"addressId\": -48241123,\n      \"plotNumber\": \"in cupidatat et culpa dolor\",\n      \"street\": \"ea\",\n      \"state\": \"quis fugiat cu\",\n      \"country\": \"laborum\",\n      \"zipCode\": 69835762\n    }\n  },\n  {\n    \"userContactNumber\": -38391604,\n    \"userEmailId\": \"YHd53u-EtvL@NNTbmH0bscF.Fyf\",\n    \"userFirstName\": \"kgzD\",\n    \"userLastName\": \"lxnc\",\n    \"userId\": -45429502,\n    \"creationTime\": \"2004-03-22T03:32:44.737Z\",\n    \"lastModTime\": \"1971-12-21T19:00:58.160Z\",\n    \"userAddress\": {\n      \"addressId\": -27060216,\n      \"plotNumber\": \"qui magna\",\n      \"street\": \"dolor minim nisi\",\n      \"state\": \"ad aliquip velit\",\n      \"country\": \"labore reprehenderit ut cillum\",\n      \"zipCode\": -3780454\n    }\n  }\n]"
+												}
+											]
+										},
+										{
+											"name": "Get User By Non Existing FirstName",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"id": "70d7f929-66d2-4ca7-9a83-abe445c64ca7",
+														"exec": [
+															"pm.collectionVariables.set(\"uFirstName\", \"Ruby\");"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "a804ed48-1086-4d54-a67f-b6aec439143d",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{baseUrl}}/uap/users/username/{{uFirstName}}"
+											},
+											"response": []
+										},
+										{
+											"name": "get User By Invalid First Name",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"id": "933fa345-a28d-4d47-8f53-7aa1567d99d1",
+														"exec": [
+															"pm.collectionVariables.set(\"uFirstName\", \"Numpy12\");"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "a61fd226-e511-4ca2-81e0-494b6dc81143",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{baseUrl}}/uap/users/username/{{uFirstName}}"
+											},
+											"response": []
+										},
+										{
+											"name": "get User By FirstName starting lower case",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"id": "fdbe00eb-1e77-4f78-a5d9-d08581e26782",
+														"exec": [
+															"pm.collectionVariables.set(\"uFirstName\", \"numpy\");"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "a6ac7ce6-5156-40df-9d4d-2c125b69cd24",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{baseUrl}}/uap/users/username/{{uFirstName}}"
+											},
+											"response": []
+										}
+									],
+									"id": "8cccb7a4-8bcb-45e5-8870-a61e45426850"
+								},
+								{
+									"name": "GetByuserId",
+									"item": [
+										{
+											"name": "Get User By ID",
+											"id": "ae973b19-7840-480b-9088-054664c07076",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{baseUrl}}/uap/user/1"
+											},
+											"response": []
+										},
+										{
+											"name": "Get User By Invalid ID",
+											"id": "906bfa00-9fe6-4d5a-85b0-536460a50685",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{baseUrl}}/uap/user/11"
+											},
+											"response": []
+										}
+									],
+									"id": "d6f63373-d2e8-4e95-a95b-f675390fe326"
+								}
+							],
+							"id": "89e77fa7-0b6b-4d15-9a19-ee5d042f61a0"
+						},
+						{
+							"name": "get All Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8e19301e-92c6-4e49-b486-59e2de264414",
+										"exec": [
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>User ID</th>\r",
+											"        <th>First Name</th>\r",
+											"        <th>Last Name</th>\r",
+											"        <th>Contact Number</th>\r",
+											"        <th>Email ID</th>\r",
+											"        <th>Creation Time</th>\r",
+											"        <th>Last Modified Time</th>\r",
+											"        <th>Address ID</th>\r",
+											"        <th>Plot Number</th>\r",
+											"        <th>Street</th>\r",
+											"        <th>State</th>\r",
+											"        <th>Country</th>\r",
+											"        <th>Zip Code</th>\r",
+											"    </tr>\r",
+											"    \r",
+											"    {{#each response}}\r",
+											"        <tr>\r",
+											"            <td>{{userId}}</td>\r",
+											"            <td>{{userFirstName}}</td>\r",
+											"            <td>{{userLastName}}</td>\r",
+											"            <td>{{userContactNumber}}</td>\r",
+											"            <td>{{userEmailId}}</td>\r",
+											"            <td>{{creationTime}}</td>\r",
+											"            <td>{{lastModTime}}</td>\r",
+											"            <td>{{userAddress.addressId}}</td>\r",
+											"            <td>{{userAddress.plotNumber}}</td>\r",
+											"            <td>{{userAddress.street}}</td>\r",
+											"            <td>{{userAddress.state}}</td>\r",
+											"            <td>{{userAddress.country}}</td>\r",
+											"            <td>{{userAddress.zipCode}}</td>\r",
+											"        </tr>\r",
+											"    {{/each}}\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return {response: pm.response.json()}\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "69e3999a-52d9-40de-a07c-109c4c9f2cb9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "userapi@2025",
+										"username": "Numpy@gmail.com"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": "{{baseUrl}}/uap/users"
+							},
+							"response": [
+								{
+									"id": "233f0c95-0df8-4aef-9e3c-6d4ed3f86fbe",
+									"name": "default response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": "{{baseUrl}}/uap/users"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "[\n  {\n    \"userContactNumber\": -31288368,\n    \"userEmailId\": \"pSjmAFHnFM9.AZI6-tVbkMp_u_MLJ0uX.NO.v9Js7dniWur-pK4d@y1zEsWgB.XIWvhboghevh\",\n    \"userFirstName\": \"Kqqcku\",\n    \"userLastName\": \"nE\",\n    \"userId\": 61373153,\n    \"creationTime\": \"1966-10-13T00:22:37.630Z\",\n    \"lastModTime\": \"1987-10-11T20:23:11.282Z\",\n    \"userAddress\": {\n      \"addressId\": -48241123,\n      \"plotNumber\": \"in cupidatat et culpa dolor\",\n      \"street\": \"ea\",\n      \"state\": \"quis fugiat cu\",\n      \"country\": \"laborum\",\n      \"zipCode\": 69835762\n    }\n  },\n  {\n    \"userContactNumber\": -38391604,\n    \"userEmailId\": \"YHd53u-EtvL@NNTbmH0bscF.Fyf\",\n    \"userFirstName\": \"kgzD\",\n    \"userLastName\": \"lxnc\",\n    \"userId\": -45429502,\n    \"creationTime\": \"2004-03-22T03:32:44.737Z\",\n    \"lastModTime\": \"1971-12-21T19:00:58.160Z\",\n    \"userAddress\": {\n      \"addressId\": -27060216,\n      \"plotNumber\": \"qui magna\",\n      \"street\": \"dolor minim nisi\",\n      \"state\": \"ad aliquip velit\",\n      \"country\": \"labore reprehenderit ut cillum\",\n      \"zipCode\": -3780454\n    }\n  }\n]"
+								}
+							]
+						}
+					],
+					"id": "8a37b9c4-a660-4745-976a-878f927d6e09"
+				},
+				{
+					"name": "deleteuser",
+					"item": [
+						{
+							"name": "username",
+							"item": [
+								{
+									"name": "{userFirstName}",
+									"item": [
+										{
+											"name": "delete By User Name",
+											"id": "d4ce9af8-6002-4bad-8bda-a3135c7415f5",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/deleteuser/username/:userFirstName",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"deleteuser",
+														"username",
+														":userFirstName"
+													],
+													"variable": [
+														{
+															"id": "4acc36e0-1a93-4203-9cce-73557ffad690",
+															"key": "userFirstName",
+															"value": "commodo in",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "3017e2d3-c3a9-4890-95fd-a53426ddf16c",
+													"name": "default response",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/uap/deleteuser/username/:userFirstName",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"uap",
+																"deleteuser",
+																"username",
+																":userFirstName"
+															],
+															"variable": [
+																{
+																	"key": "userFirstName"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n  \"status\": \"id officia sit dolor\",\n  \"message\": \"et ullamco ea tempor\"\n}"
+												}
+											]
+										}
+									],
+									"id": "bf76f09c-52ae-4e55-be42-4e9083901010"
+								}
+							],
+							"id": "4f4bd4a4-0914-4b0c-a2ed-0a35ad6c8dcd"
+						},
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "delete By User Id",
+									"id": "9a626aab-1dee-40d4-9e61-5df86b7db2e7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/deleteuser/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"deleteuser",
+												":userId"
+											],
+											"variable": [
+												{
+													"id": "d1460380-b206-46cd-8271-85499b22379f",
+													"key": "userId",
+													"value": "46690443",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "39ea68fa-ab41-4ed3-9d09-c71fad128fbb",
+											"name": "default response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/deleteuser/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"deleteuser",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"status\": \"id officia sit dolor\",\n  \"message\": \"et ullamco ea tempor\"\n}"
+										}
+									]
+								}
+							],
+							"id": "75ba95ae-d77b-4087-97da-0db2e3040efd"
+						}
+					],
+					"id": "de4cf8e5-1db2-4048-94af-ff15b8068020"
+				},
+				{
+					"name": "createusers",
+					"item": [
+						{
+							"name": "create New User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4ab3391c-1ed7-44c5-97a6-5f99c125d4c4",
+										"exec": [
+											"\r",
+											"\r",
+											"// After Response\r",
+											"// Your test scripts go here\r",
+											"\r",
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f66c936a-9e15-481c-a661-a683cd071ecd",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ecba2215-fcad-4042-9f3b-b6485508a657",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userContactNumber\": {{random_phone}},\n  \"userEmailId\": \"{{user_email}}\",\n  \"userFirstName\": \"{{user_first_name}}\",\n  \"userLastName\": \"{{user_last_name}}\",\n  \n    \"userAddress\": {\n    \"plotNumber\": \"pl-04\",\n    \"street\": \"wholefoods\",\n    \"state\": \"PA\",\n    \"country\": \"US\",\n    \"zipCode\": 15741\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": [
+								{
+									"id": "50c7f01f-d8c0-4bc1-bdff-884c13967b3a",
+									"name": "default response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userContactNumber\": -3426486,\n  \"userEmailId\": \"H.Se42ol.b.zn_RzkbkujqXxw@h065I.MJgGyEev\",\n  \"userFirstName\": \"Bh kNIwo \",\n  \"userLastName\": \"KLvI WfoTN\",\n  \"userId\": -9571621,\n  \"creationTime\": \"1992-08-15T06:26:57.621Z\",\n  \"lastModTime\": \"1984-11-19T09:27:43.023Z\",\n  \"userAddress\": {\n    \"addressId\": 95649047,\n    \"plotNumber\": \"velit nostrud\",\n    \"street\": \"ex sed non ipsum\",\n    \"state\": \"exercitation consequat\",\n    \"country\": \"eiusmod anim et\",\n    \"zipCode\": -15741965\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/createusers"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"userContactNumber\": -3426486,\n  \"userEmailId\": \"H.Se42ol.b.zn_RzkbkujqXxw@h065I.MJgGyEev\",\n  \"userFirstName\": \"Bh kNIwo \",\n  \"userLastName\": \"KLvI WfoTN\",\n  \"userId\": -9571621,\n  \"creationTime\": \"1992-08-15T06:26:57.621Z\",\n  \"lastModTime\": \"1984-11-19T09:27:43.023Z\",\n  \"userAddress\": {\n    \"addressId\": 95649047,\n    \"plotNumber\": \"velit nostrud\",\n    \"street\": \"ex sed non ipsum\",\n    \"state\": \"exercitation consequat\",\n    \"country\": \"eiusmod anim et\",\n    \"zipCode\": -15741965\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "DuplicateCheck",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e3bd6125-8e96-4b39-b7b8-63a0df602e9a",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b4da1f65-e947-4897-bee0-3c0c52404645",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": 1133311222,\r\n  \"userEmailId\": \"Hello1@gamil.com\",\r\n  \"userFirstName\": \"Abha\",\r\n  \"userLastName\": \"Ghosh\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithoutValues",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e3b842bc-3b24-4c59-a7e0-33fb90cddce4",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2d93ff14-80b4-495a-a3c7-971d26f58405",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{}},\r\n  \"userEmailId\": \"{{}}\",\r\n  \"userFirstName\": \"{{}}\",\r\n  \"userLastName\": \"{{}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithMandatoryFields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "26c199d0-8879-4b08-ba35-f57194230cc8",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "37a38ff4-a5fe-4f2f-a546-6fc4b0cebc94",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"p-34\",\r\n    \"street\": \"Abc\",\r\n    \"state\": \"AAA\",\r\n    \"country\": \"AA\",\r\n    \"zipCode\": 1234\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithMissingFirstNameField",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bbcbc841-b6cc-4b3e-940e-c79700393d16",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d194acf3-dca6-4d74-ad71-ac5067b2ab5b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithMissingLastNameField",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a01ceeb0-7361-4115-81b7-68bfbb7da1c8",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4bb6f498-8eaa-474d-8d00-2c9ab3f42018",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithMissingEmailIdField",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "da2635ee-baf6-4309-b41d-f8673c15e844",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "474c810b-3a6f-485c-9eb9-96951ba220cc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithMissingContactNoField",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7bbc10a4-aa3b-44af-9b37-7e1e98149068",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b9324c8d-7bee-4ab5-bf5d-22f64206e389",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithFirstNameEmptyString",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "76dd46fc-08f3-4557-9e1a-061441f858c3",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ad3760ea-56ab-4909-bd8d-79c2ec1d0916",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithLastNameEmptyString",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "69186afe-dc12-4dcc-ae86-9c49c67c05e4",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d37924b4-5aa7-4077-803b-eac7e67966fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithEmailIdEmptyString",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6259c850-9f6e-40f2-94a7-005dd4dde39e",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4b8200ae-1768-4356-ba7a-da5a49941c5c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithContactNoEmptyString",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d4d35abb-24ee-4a24-9563-7092d96d8d35",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "3fa67e8b-b82e-454b-9fea-8b7f4d812126",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithInvalidFirstName",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6192ff1a-d5d5-43a3-8c7a-e819efcb9370",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d8c01ecb-5438-42e3-bc18-8962c2763b14",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"Ram123\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithInvalidLastName",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e3e56ce3-5e54-4929-ab76-1a6e26577fc8",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e3ccb87b-57ba-4869-b8bc-f800b9a9d1de",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"Nayak123\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithInvalidEmailId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c7bcce20-b394-4b5d-a572-5368315df255",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "11077c9a-0d47-4696-bd62-e433b10f93e0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"Tim#76@gmai.com\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUseWithInvalidContactNo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "be938318-160a-4f1f-81fb-efb64c4a6fd1",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "1e165629-3208-4a6b-8940-99bc1aa27932",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": 12312345560,\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateUserWithInvalidPlotNumber",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "80a4356d-3cb8-4216-9c77-ec1c4bdf2be5",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "8f77144e-80f4-406d-8855-9609d0dcd342",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"p1#l-u04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateUserWithInvalidStreet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6b787da4-b360-4f85-a796-c4a771a9ae33",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "5ad002c6-26e9-4539-a3a1-c102fdc3fff2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"@Abcd\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateUserWithInvalidStateName",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6642203e-7e1a-4254-a142-dc82b197a7d3",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2bcaeb54-e639-4e0e-baa5-5e2e773893e0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"P@A\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateUserWithInvalidCountryName",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4a3c1353-bfdd-446a-8719-2126d9202b3b",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c92f3572-ece0-4493-9b05-b43220262928",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"@US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewUserWithInvalidZipCode",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "65d006e9-6bb8-4b30-939a-9201425cb2c5",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "89748337-5e12-4722-afbe-89d7bc9b555c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15748675546546544\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						}
+					],
+					"id": "3ddce01b-87ff-4d85-a337-a29b8ae815a1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2024d957-6d5b-4a49-90b9-78dc4fc7e742",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"var random = Math.random().toString().substring(2, 12);\r",
+									"// Function to generate a random alphabetic string of given length\r",
+									"function generateRandomName(length) {\r",
+									"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+									"    let result = '';\r",
+									"    for (let i = 0; i < length; i++) {\r",
+									"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+									"    }\r",
+									"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+									"}\r",
+									"\r",
+									"// Generate names\r",
+									"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+									"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+									"\r",
+									"// Use the random string for other fields\r",
+									"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+									"\r",
+									"// Generate phone number: starts with 9 + 9 random digits\r",
+									"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+									"\r",
+									"// Save to environment\r",
+									"pm.environment.set(\"random\", random);\r",
+									"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+									"pm.environment.set(\"user_last_name\", usrLastName);\r",
+									"pm.environment.set(\"user_email\", useremail);\r",
+									"pm.environment.set(\"random_phone\", randomPhone);\r",
+									"\r",
+									"// Debug output\r",
+									"console.log(\"First Name:\", usrFirstName);\r",
+									"console.log(\"Last Name:\", usrLastName);\r",
+									"console.log(\"Email:\", useremail);\r",
+									"console.log(\"Phone Number:\", randomPhone);"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b9e6d93a-8620-4405-8ecc-6c30e6d61d8b",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"// Before Request\r",
+									"var random = Math.random().toString().substring(2, 12);\r",
+									"// Function to generate a random alphabetic string of given length\r",
+									"function generateRandomName(length) {\r",
+									"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+									"    let result = '';\r",
+									"    for (let i = 0; i < length; i++) {\r",
+									"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+									"    }\r",
+									"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+									"}\r",
+									"\r",
+									"// Generate names\r",
+									"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+									"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+									"\r",
+									"// Use the random string for other fields\r",
+									"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+									"\r",
+									"// Generate phone number: starts with 9 + 9 random digits\r",
+									"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+									"\r",
+									"// Save to environment\r",
+									"pm.environment.set(\"random\", random);\r",
+									"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+									"pm.environment.set(\"user_last_name\", usrLastName);\r",
+									"pm.environment.set(\"user_email\", useremail);\r",
+									"pm.environment.set(\"random_phone\", randomPhone);\r",
+									"\r",
+									"// Debug output\r",
+									"console.log(\"First Name:\", usrFirstName);\r",
+									"console.log(\"Last Name:\", usrLastName);\r",
+									"console.log(\"Email:\", useremail);\r",
+									"console.log(\"Phone Number:\", randomPhone);"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "updateuser",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "update User",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "f6590661-38d5-486c-9c89-e72217a39959",
+												"exec": [
+													"pm.collectionVariables.set(\"uID\", 22162);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2ad14b92-a20b-4a38-885b-e4701585b15c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"userFirstName\": \"Qzmpib\",\n    \"userLastName\": \"Uozemncf\",\n    \"userContactNumber\": 9302520085,\n    \"userEmailId\": \"jim9467555488@gmail.com\",\n    \"userAddress\": {\n        \"plotNumber\": \"pl-04\",\n        \"street\": \"wholefoods\",\n        \"state\": \"PA\",\n        \"country\": \"US\",\n        \"zipCode\": 15741\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": [
+										{
+											"id": "ec50c7fd-12fb-457a-a57d-3d40925e5f75",
+											"name": "default response",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userContactNumber\": -3426486,\n  \"userEmailId\": \"H.Se42ol.b.zn_RzkbkujqXxw@h065I.MJgGyEev\",\n  \"userFirstName\": \"Bh kNIwo \",\n  \"userLastName\": \"KLvI WfoTN\",\n  \"userId\": -9571621,\n  \"creationTime\": \"1992-08-15T06:26:57.621Z\",\n  \"lastModTime\": \"1984-11-19T09:27:43.023Z\",\n  \"userAddress\": {\n    \"addressId\": 95649047,\n    \"plotNumber\": \"velit nostrud\",\n    \"street\": \"ex sed non ipsum\",\n    \"state\": \"exercitation consequat\",\n    \"country\": \"eiusmod anim et\",\n    \"zipCode\": -15741965\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/uap/updateuser/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"updateuser",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"userContactNumber\": -3426486,\n  \"userEmailId\": \"H.Se42ol.b.zn_RzkbkujqXxw@h065I.MJgGyEev\",\n  \"userFirstName\": \"Bh kNIwo \",\n  \"userLastName\": \"KLvI WfoTN\",\n  \"userId\": -9571621,\n  \"creationTime\": \"1992-08-15T06:26:57.621Z\",\n  \"lastModTime\": \"1984-11-19T09:27:43.023Z\",\n  \"userAddress\": {\n    \"addressId\": 95649047,\n    \"plotNumber\": \"velit nostrud\",\n    \"street\": \"ex sed non ipsum\",\n    \"state\": \"exercitation consequat\",\n    \"country\": \"eiusmod anim et\",\n    \"zipCode\": -15741965\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "UpdateUserFirstName",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "7e8d4c99-76a9-498b-84dc-ea177a9506bc",
+												"exec": [
+													"\r",
+													"\r",
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"First Name:\", usrFirstName);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "3fe9af19-1e72-4dee-bb01-57ab9fc6b0fc",
+												"exec": [
+													"//status code validation for creating a new user\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"//validation for headers\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c0c76293-711c-49b7-9c7f-22254f840ddb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"{{user_first_name}}\",\r\n    \"userLastName\": \"Uozemncf\",\r\n    \"userContactNumber\": 9302520085,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"wholefoods\",\r\n        \"state\": \"PA\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserLastNmae",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "d179c0b2-5ba8-4359-8644-c9948197cb6c",
+												"exec": [
+													"\r",
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrLastName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_last_name\", usrLastName);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Last Name:\", usrLastName);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "42e08056-2dc6-43c4-818e-5dd4a4faf237",
+												"exec": [
+													"//status code validation for creating a new user\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"//validation for headers\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "956adc91-0ce4-4285-b4b7-15ededfbc823",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"{{user_last_name}}\",\r\n    \"userContactNumber\": 9302520085,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"wholefoods\",\r\n        \"state\": \"PA\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserEmail",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "d68ca83d-c092-4c61-9ea9-67826c435ee1",
+												"exec": [
+													"// Before Request\r",
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"\r",
+													"// Use the random string for other fields\r",
+													"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+													"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_email\", useremail);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Email:\", useremail);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "75e1cb48-5f30-4253-bbba-4731253215ff",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Bob\",\r\n    \"userContactNumber\": 9302520085,\r\n    \"userEmailId\": \"{{user_email}}\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"wholefoods\",\r\n        \"state\": \"PA\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserContactNo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "37aceb32-cfcf-4a8a-b2d9-a406715cbaad",
+												"exec": [
+													"// Before Request\r",
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"random_phone\", randomPhone);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Phone Number:\", randomPhone);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "596da160-2d10-464a-ae9f-3bd16376043f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Bob\",\r\n    \"userContactNumber\": {{random_phone}},\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"wholefoods\",\r\n        \"state\": \"PA\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdatePlotNumber",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "37d11065-1c5f-4118-abe1-40055f15ab5c",
+												"exec": [
+													"// Before Request\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPlot = \"p1\" +\"-\"+Math.random().toString().substring(2, 4);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random_plot\", randomPlot);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Phone Number:\", randomPlot);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b41fc468-da22-4a98-9655-ba9ffd8e60b4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Uozemncf\",\r\n    \"userContactNumber\": 9302520085,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"{{random_plot}}\",\r\n        \"street\": \"wholefoods\",\r\n        \"state\": \"PA\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateStreet",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "b0ed3ee8-d13f-4a2e-a70d-ea42bd9a2e98",
+												"exec": [
+													"\r",
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrStreet = generateRandomName(4); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_street_address\", usrStreet);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Street:\", usrStreet);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "123b1395-9c0e-4f29-a81e-2bee85c41a8f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Bob\",\r\n    \"userContactNumber\": 9302520099,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"{{user_street_address}}\",\r\n        \"state\": \"PA\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateState",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f2e04178-a9af-46db-b574-4ea0ee689855",
+												"exec": [
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrState = generateRandomName(3); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_state_address\", usrState);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"State:\", usrState);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "5a82cb3f-39b8-416f-9d68-1d854aa5e99e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Bob\",\r\n    \"userContactNumber\": 9302520099,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"Rae\",\r\n        \"state\": \"{{user_state_address}}\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateCountry",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "596261be-7f36-40fd-9c87-14b19c22351b",
+												"exec": [
+													"\r",
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrCountry = generateRandomName(3); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_country_address\", usrCountry);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Country:\", usrCountry);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "53d01189-681e-418f-bc6f-c8ebc803efbb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Bob\",\r\n    \"userContactNumber\": 9302520099,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"Rae\",\r\n        \"state\": \"PEnnsylvania\",\r\n        \"country\": \"{{user_country_address}}\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateZipCode",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "e7087c11-3c45-4ffc-acfc-e81e9c6a8e09",
+												"exec": [
+													"// Before Request\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomZipCode = '9' + Math.random().toString().substring(2, 5);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random_zip_code\", randomZipCode);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Zip Code:\", randomZipCode);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "05fed4c4-22b4-4ac7-b6cd-b8646fbbdf18",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"Aihliey\",\r\n    \"userLastName\": \"Bob\",\r\n    \"userContactNumber\": 9302520099,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"Rae\",\r\n        \"state\": \"PEnnsylvania\",\r\n        \"country\": \"USA\",\r\n        \"zipCode\": {{random_zip_code}}\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserWithInvalidFirstName",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "a2d1dced-3207-4f91-83ed-b04e544500a3",
+												"exec": [
+													"\r",
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrFirstName = generateRandomName(6)+\"12\"; // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"First Name:\", usrFirstName);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "68262d6e-6f9c-4436-87a7-b1494bd83289",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userFirstName\": \"{{user_first_name}}\",\r\n    \"userLastName\": \"Uozemncf\",\r\n    \"userContactNumber\": 9302520085,\r\n    \"userEmailId\": \"jim9467555488@gmail.com\",\r\n    \"userAddress\": {\r\n        \"plotNumber\": \"pl-04\",\r\n        \"street\": \"wholefoods\",\r\n        \"state\": \"PA\",\r\n        \"country\": \"US\",\r\n        \"zipCode\": 15741\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
+									},
+									"response": []
+								}
+							],
+							"id": "e9d66401-e6a9-4e83-add4-d583506b1a90"
+						}
+					],
+					"id": "09b06910-138d-4d00-a19e-d39c55a2c7d1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1833ede6-f9fb-4ee1-9780-99d205478892",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"// Before Request\r",
+									"var random = Math.random().toString().substring(2, 12);\r",
+									"// Function to generate a random alphabetic string of given length\r",
+									"function generateRandomName(length) {\r",
+									"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+									"    let result = '';\r",
+									"    for (let i = 0; i < length; i++) {\r",
+									"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+									"    }\r",
+									"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+									"}\r",
+									"\r",
+									"// Generate names\r",
+									"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+									"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+									"\r",
+									"// Use the random string for other fields\r",
+									"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+									"\r",
+									"// Generate phone number: starts with 9 + 9 random digits\r",
+									"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+									"\r",
+									"// Save to environment\r",
+									"pm.environment.set(\"random\", random);\r",
+									"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+									"pm.environment.set(\"user_last_name\", usrLastName);\r",
+									"pm.environment.set(\"user_email\", useremail);\r",
+									"pm.environment.set(\"random_phone\", randomPhone);\r",
+									"\r",
+									"// Debug output\r",
+									"console.log(\"First Name:\", usrFirstName);\r",
+									"console.log(\"Last Name:\", usrLastName);\r",
+									"console.log(\"Email:\", useremail);\r",
+									"console.log(\"Phone Number:\", randomPhone);"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "64e34e7e-fa17-4104-b8b3-4f66c1d67052",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "updateuserfields",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "update User Fields",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "21194035-8540-4da0-8426-2e8c614c83b3",
+												"exec": [
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+													"pm.environment.set(\"user_email\", useremail);\r",
+													"console.log(\"user_email:\", useremail);\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "032df406-3a20-416e-a174-615d6c5206f4",
+												"exec": [
+													"//Update emailId status code\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4ca47714-de0b-4491-afc8-fc2ee62636b4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userEmailId\":\"{{user_email}}\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuserfields/21860"
+									},
+									"response": [
+										{
+											"id": "6d9e683a-2301-4420-9f63-b2d645d79f4f",
+											"name": "default response",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/updateuserfields/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"updateuserfields",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"userContactNumber\": -3426486,\n  \"userEmailId\": \"H.Se42ol.b.zn_RzkbkujqXxw@h065I.MJgGyEev\",\n  \"userFirstName\": \"Bh kNIwo \",\n  \"userLastName\": \"KLvI WfoTN\",\n  \"userId\": -9571621,\n  \"creationTime\": \"1992-08-15T06:26:57.621Z\",\n  \"lastModTime\": \"1984-11-19T09:27:43.023Z\",\n  \"userAddress\": {\n    \"addressId\": 95649047,\n    \"plotNumber\": \"velit nostrud\",\n    \"street\": \"ex sed non ipsum\",\n    \"state\": \"exercitation consequat\",\n    \"country\": \"eiusmod anim et\",\n    \"zipCode\": -15741965\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "UpdateUserFirstName",
+									"id": "4f59e901-b52c-4b89-8266-27fc7dacee1a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": {
+												"password": "userapi@2025",
+												"username": "Numpy@gmail.com"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"userLastName\" : \"PALLISETTY\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{baseUrl}}/uap/updateuserfields/21304"
+									},
+									"response": []
+								}
+							],
+							"id": "0e1cfe99-b2b4-4ed5-a1eb-dea5a1ab33a9"
+						},
+						{
+							"name": "UpdateUserLastName",
+							"id": "7b0bace6-a470-4fd8-8e82-38a66d906d01",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "b9acfd75-8b87-4c54-9497-4c440a0e0a11"
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "get User By Id",
+									"id": "82494866-bedb-4d4e-84d2-3c85e1e5cd37",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": "{{baseUrl}}/uap/user/21304"
+									},
+									"response": [
+										{
+											"id": "fe842202-6c8e-4ec4-947b-52398edb1dab",
+											"name": "default response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/user/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"user",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"userContactNumber\": -3426486,\n  \"userEmailId\": \"H.Se42ol.b.zn_RzkbkujqXxw@h065I.MJgGyEev\",\n  \"userFirstName\": \"Bh kNIwo \",\n  \"userLastName\": \"KLvI WfoTN\",\n  \"userId\": -9571621,\n  \"creationTime\": \"1992-08-15T06:26:57.621Z\",\n  \"lastModTime\": \"1984-11-19T09:27:43.023Z\",\n  \"userAddress\": {\n    \"addressId\": 95649047,\n    \"plotNumber\": \"velit nostrud\",\n    \"street\": \"ex sed non ipsum\",\n    \"state\": \"exercitation consequat\",\n    \"country\": \"eiusmod anim et\",\n    \"zipCode\": -15741965\n  }\n}"
+										}
+									]
+								}
+							],
+							"id": "e1c6d62e-6a76-400e-869f-7bade5ed5ecf"
+						}
+					],
+					"id": "37e7b08e-e383-437d-b046-4dd39630490e"
+				},
+				{
+					"name": "CreateUpadteDeleteTest",
+					"item": [
+						{
+							"name": "Create a New User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f65f49b8-0cc5-4794-ace1-f2004f8ef5bb",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											"\r",
+											"let response = pm.response.json();\r",
+											"pm.collectionVariables.set(\"uFirstName\", response.userFirstName);\r",
+											"\r",
+											"pm.collectionVariables.set(\"uId\", response.userId);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "f15ed5f5-4b70-438a-b14a-efe44aec8d6f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": 9718787114,\r\n  \"userEmailId\": \"Nayak@gamil.com\",\r\n  \"userFirstName\": \"Ram\",\r\n  \"userLastName\": \"DAS\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"p2-55\",\r\n    \"street\": \"Milton\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15742\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						},
+						{
+							"name": "Get the New User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "76743ee7-08d0-4e78-bc33-7c2afbede5ab",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "11ca2a93-ea85-453a-89eb-4d83b0315669",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/uap/users/username/{{uFirstName}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update The Field of New User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "81287bb9-10e1-4101-b836-2942a8cdcd2c",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2e8db84c-aacc-442f-8a1b-8deabb4aca47",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n  \"userLastName\": \"Ghosh\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/updateuserfields/{{userId}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get the New User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6cb3faee-8f11-4193-ba7f-d860712b057e",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "127831e6-f7b0-4784-bf14-ff3c0971ea33",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{baseUrl}}/uap/users/username/{{uFirstName}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete the New User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4462892d-3026-4800-aafb-901d864c341b",
+										"exec": [
+											"//status code validation for creating a new user\r",
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"//Validation for duplicates record\r",
+											"pm.test(\"Status code for Duplicate 409\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "33d4d680-1c79-4b2a-9aa9-2ff7ae0aea91",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n  \"userLastName\": \"Ghosh\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/deleteuser/username/{{uFirstName}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Test For Deleted User",
+							"id": "eca84376-6e51-40ad-ac41-9f4896f641f8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/uap/users/username/{{uFirstName}}"
+							},
+							"response": []
+						}
+					],
+					"id": "1d885bd6-cc6e-4ec0-94d6-2aacfb6db56b"
+				},
+				{
+					"name": "createuserdatafromCSV",
+					"item": [
+						{
+							"name": "createuserfromCSVInput",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "458d0852-7fd2-4827-b5a2-75784ba83756",
+										"exec": [
+											"// var random = Math.random().toString().substring(2, 12);\r",
+											"// // Function to generate a random alphabetic string of given length\r",
+											"// function generateRandomName(length) {\r",
+											"//     const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"//     let result = '';\r",
+											"//     for (let i = 0; i < length; i++) {\r",
+											"//         result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"//     }\r",
+											"//     return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"// }\r",
+											"\r",
+											"// // Generate names\r",
+											"// var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+											"// var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+											"\r",
+											"// // Use the random string for other fields\r",
+											"// var useremail = \"jim\" + random + \"@gmail.com\";\r",
+											"\r",
+											"// // Generate phone number: starts with 9 + 9 random digits\r",
+											"// let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+											"\r",
+											"// // Save to environment\r",
+											"// pm.environment.set(\"random\", random);\r",
+											"// pm.environment.set(\"user_first_name\", usrFirstName);\r",
+											"// pm.environment.set(\"user_last_name\", usrLastName);\r",
+											"// pm.environment.set(\"user_email\", useremail);\r",
+											"// pm.environment.set(\"random_phone\", randomPhone);\r",
+											"\r",
+											"// // Debug output\r",
+											"// console.log(\"First Name:\", usrFirstName);\r",
+											"// console.log(\"Last Name:\", usrLastName);\r",
+											"// console.log(\"Email:\", useremail);\r",
+											"// console.log(\"Phone Number:\", randomPhone);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c93952fc-ff18-4d9a-a324-062441608019",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": \"{{userContactNumber}}\",\r\n  \"userEmailId\": \"{{userEmailId}}\",\r\n  \"userFirstName\": \"{{userFirstName}}\",\r\n  \"userLastName\": \"{{userLastName}}\",\r\n  \"userAddress\": {\r\n    \"plotNumber\": \"{{plotNumber}}\",\r\n    \"street\": \"{{street}}\",\r\n    \"state\": \"{{state}}\",\r\n    \"country\": \"{{country}}\",\r\n    \"zipCode\": \"{{zipCode}}\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/uap/createusers"
+							},
+							"response": []
+						}
+					],
+					"id": "b8db6e28-1745-40e3-94e1-50298f0af0b3"
+				}
+			],
+			"id": "dca5fd8e-c39c-4f03-a3eb-7c11fea46272",
+			"auth": {
+				"type": "basic",
+				"basic": {
+					"password": "userapi@2025",
+					"username": "Numpy@gmail.com"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ace877e7-19e5-4c14-a5a7-e1c994a09f80",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e54bd80-e766-4a14-b029-16be7d1e694c",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://userserviceapp-f5a54828541b.herokuapp.com"
+		},
+		{
+			"key": "userLastName",
+			"value": ""
+		},
+		{
+			"key": "userFirstName",
+			"value": ""
+		},
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "uFirstName",
+			"value": ""
+		},
+		{
+			"key": "uId",
+			"value": ""
+		},
+		{
+			"key": "uID",
+			"value": ""
+		}
+	]
+}
