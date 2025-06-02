@@ -3049,13 +3049,50 @@
 								},
 								{
 									"name": "UpdateUserWithInvalidContactNo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "7b81b3ce-e8ff-4aa2-8cae-05dd5cc36652",
+												"exec": [
+													"// Before Request\r",
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"random_phone\", randomPhone);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Phone Number:\", randomPhone);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "42903242-28198f94-c9e3-4f2d-856b-0291f706e655",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "GET",
-										"header": []
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuser/{{uID}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuser",
+												"{{uID}}"
+											]
+										}
 									},
 									"response": []
 								},
