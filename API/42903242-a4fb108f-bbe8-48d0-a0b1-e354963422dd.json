@@ -3189,6 +3189,40 @@
 						},
 						{
 							"name": "UpdateInvalidStreet",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "83fcda91-7c61-49cb-857d-da573b670814",
+										"exec": [
+											"// Before Request\r",
+											"// Function to generate a random alphabetic string of given length\r",
+											"function generateRandomName(length) {\r",
+											"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"    let result = '';\r",
+											"    for (let i = 0; i < length; i++) {\r",
+											"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"    }\r",
+											"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"}\r",
+											"\r",
+											"// Generate names\r",
+											"var usrStreet = generateRandomName(4); // e.g., \"Zogmir\"\r",
+											"\r",
+											"// Save to environment\r",
+											"\r",
+											"pm.environment.set(\"user_street_address\", usrStreet);\r",
+											"\r",
+											"// Debug output\r",
+											"console.log(\"Street:\", usrStreet);\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "42903242-2b665a8c-a919-44f0-87f6-eef0902ac1d2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
