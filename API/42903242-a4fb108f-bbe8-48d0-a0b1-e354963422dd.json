@@ -2923,6 +2923,41 @@
 								},
 								{
 									"name": "UpdateUserWithInvalidLastName",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "03895822-8737-4335-aaa7-c06394ed2262",
+												"exec": [
+													"\r",
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrLastName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"usrLastName = usrFirstName+\"12\";\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_first_name\", usrLastName);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"First Name:\", usrLastName);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "42903242-5cf542df-4baf-4372-8f96-8725e01f5f7d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
