@@ -2618,7 +2618,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "    {\r\n        \"userFirstName\": \"Asdf\",\r\n        \"userLastName\": \"{{user_last_name}}\",\r\n        \"userContactNumber\": 9472653296,\r\n        \"userEmailId\": \"jim9922246748@gmail.com\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"pl-04\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
+											"raw": "    {\r\n        \"userFirstName\": \"Asdf\",\r\n        \"userLastName\": \"galq\",\r\n        \"userContactNumber\": 9472653296,\r\n        \"userEmailId\": \"{{user_email}}\",\r\n        \"userAddress\": {\r\n            \"plotNumber\": \"pl-04\",\r\n            \"street\": \"wholefoods\",\r\n            \"state\": \"PA\",\r\n            \"country\": \"US\",\r\n            \"zipCode\": 1574145\r\n        }\r\n    }\r\n    ",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2630,14 +2630,41 @@
 									"response": []
 								},
 								{
-									"name": "New Request",
+									"name": "UpdateUserWithInvalidContactNo",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "7b81b3ce-e8ff-4aa2-8cae-05dd5cc36652",
+												"exec": [
+													"// Before Request\r",
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPhone = '9' + Math.random().toString().substring(2, 13);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"random_phone\", randomPhone);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Phone Number:\", randomPhone);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "28198f94-c9e3-4f2d-856b-0291f706e655",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "GET",
-										"header": []
+										"method": "POST",
+										"header": [],
+										"url": "{{baseUrl}}/uap/updateuser/{{uID}}"
 									},
 									"response": []
 								},
