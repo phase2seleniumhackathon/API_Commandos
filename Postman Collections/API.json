@@ -1787,7 +1787,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2024d957-6d5b-4a49-90b9-78dc4fc7e742",
+								"id": "526f5f59-060c-4cd6-a389-aa16fff8c025",
 								"type": "text/javascript",
 								"packages": {},
 								"exec": [
@@ -1830,44 +1830,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b9e6d93a-8620-4405-8ecc-6c30e6d61d8b",
+								"id": "9cfbcd21-e595-4437-b0e0-63c6b12e1db4",
 								"type": "text/javascript",
 								"packages": {},
 								"exec": [
-									"// Before Request\r",
-									"var random = Math.random().toString().substring(2, 12);\r",
-									"// Function to generate a random alphabetic string of given length\r",
-									"function generateRandomName(length) {\r",
-									"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
-									"    let result = '';\r",
-									"    for (let i = 0; i < length; i++) {\r",
-									"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
-									"    }\r",
-									"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
-									"}\r",
-									"\r",
-									"// Generate names\r",
-									"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
-									"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
-									"\r",
-									"// Use the random string for other fields\r",
-									"var useremail = \"jim\" + random + \"@gmail.com\";\r",
-									"\r",
-									"// Generate phone number: starts with 9 + 9 random digits\r",
-									"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
-									"\r",
-									"// Save to environment\r",
-									"pm.environment.set(\"random\", random);\r",
-									"pm.environment.set(\"user_first_name\", usrFirstName);\r",
-									"pm.environment.set(\"user_last_name\", usrLastName);\r",
-									"pm.environment.set(\"user_email\", useremail);\r",
-									"pm.environment.set(\"random_phone\", randomPhone);\r",
-									"\r",
-									"// Debug output\r",
-									"console.log(\"First Name:\", usrFirstName);\r",
-									"console.log(\"Last Name:\", usrLastName);\r",
-									"console.log(\"Email:\", useremail);\r",
-									"console.log(\"Phone Number:\", randomPhone);"
+									""
 								]
 							}
 						}
