@@ -3387,7 +3387,7 @@
 							"response": []
 						},
 						{
-							"name": "New Request",
+							"name": "UpdateInvalidZipCode",
 							"id": "42903242-6a551fef-1f5f-474b-aa0e-23a52657d200",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
