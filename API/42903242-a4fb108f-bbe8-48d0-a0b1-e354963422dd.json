@@ -2943,7 +2943,7 @@
 													"\r",
 													"// Generate names\r",
 													"var usrLastName = generateRandomName(6); // e.g., \"Zogmir\"\r",
-													"usrLastName = usrFirstName+\"12\";\r",
+													"usrLastName = usrLastName+\"12\";\r",
 													"// Save to environment\r",
 													"\r",
 													"pm.environment.set(\"user_last_name\", usrLastName);\r",
