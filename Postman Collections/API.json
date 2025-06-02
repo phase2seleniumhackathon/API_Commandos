@@ -3072,8 +3072,8 @@
 										"id": "4462892d-3026-4800-aafb-901d864c341b",
 										"exec": [
 											"//status code validation for creating a new user\r",
-											"pm.test(\"Status code is 201\", function () {\r",
-											"    pm.response.to.have.status(201);\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"\r",
 											"//validation for headers\r",
