@@ -684,7 +684,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"userContactNumber\": {{random_phone}},\n  \"userEmailId\": \"{{user_email}}\",\n  \"userFirstName\": \"{{user_first_name}}\",\n  \"userLastName\": \"{{user_last_name}}\",\n  \n    \"userAddress\": {\n    \"plotNumber\": \"pl-04\",\n    \"street\": \"wholefoods\",\n    \"state\": \"PA\",\n    \"country\": \"US\",\n    \"zipCode\": 15741\n  }\n}",
+									"raw": "{\n  \"userContactNumber\": {{random_phone}},\n  \"userEmailId\": \"{{user_email}}\",\n  \"userFirstName\": \"{{user_first_name}}\",\n  \"userLastName\": \"{{user_last_name}}\",\n  \n    \"userAddress\": {\n    \"plotNumber\": \"pl-04\",\n    \"street\": \" \",\n    \"state\": \"PA\",\n    \"country\": \"US\",\n    \"zipCode\": 15741\n  }\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
