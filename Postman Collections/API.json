@@ -801,7 +801,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \" \",\r\n    \"street\": \" \",\r\n    \"state\": \" \",\r\n    \"country\": \" \",\r\n    \"zipCode\": \" \"\r\n  }\r\n}",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \" \",\r\n    \"street\": \" \",\r\n    \"state\": \" \",\r\n    \"country\": \" \",\r\n    \"zipCode\": 12343\r\n  }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
