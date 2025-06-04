@@ -1647,7 +1647,7 @@
 													"\r",
 													"\r",
 													"// Generate phone number: starts with 9 + 9 random digits\r",
-													"let randomZipCode = '9' + \"yt\"+Math.random().toString().substring(2, 5);\r",
+													"let randomZipCode = '9' + \"**\"+Math.random().toString().substring(2, 5);\r",
 													"\r",
 													"// Save to environment\r",
 													"pm.environment.set(\"random_zip_code\", randomZipCode);\r",
