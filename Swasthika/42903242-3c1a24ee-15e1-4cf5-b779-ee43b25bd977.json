@@ -97,7 +97,7 @@
 															"    \"required\": [\"userFirstName\", \"userLastName\", \"userContactNumber\", \"userEmailId\", \"userAddress\"]\r",
 															"  }\r",
 															"};\r",
-															"  console.log(\"RESPONSE\"+pm.response.json());\r",
+															"\r",
 															"pm.test(\"Response matches expected schema\", function () {\r",
 															"  console.log(\"Schema validation\");\r",
 															"\r",
