@@ -348,7 +348,7 @@
 													"const errorMessage = pm.response.json().message;\r",
 													"console.log(\"Error Message:\", errorMessage);\r",
 													"\r",
-													"//pm.response.to.have.status(404);\r",
+													"pm.response.to.have.errorMessage;\r",
 													"} else if (scenarioType === \"positive\") {\r",
 													"console.log(\"Actual status of scenarioType: \" + scenarioType + \" is \" + pm.response.code);\r",
 													"\r",
