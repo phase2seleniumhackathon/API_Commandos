@@ -1682,14 +1682,15 @@
 											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"zipCode\":\"{{random_zip_code}}\"\r\n}\r\n}\r\n"
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields//{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"",
+												"{{userId}}"
 											]
 										}
 									},
