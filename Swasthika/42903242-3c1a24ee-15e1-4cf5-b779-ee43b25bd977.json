@@ -894,7 +894,7 @@
 												"id": "d1282200-6cc6-45ac-b5b5-65543bb9357f",
 												"exec": [
 													"// Use the random string for other fields\r",
-													"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+													"var useremail = \"jim\" + random + \"@@\"+\"@gmail.com\";\r",
 													"\r",
 													"\r",
 													"\r",
