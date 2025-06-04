@@ -355,6 +355,7 @@
 													"//pm.response.to.have.status(200);\r",
 													"} else {\r",
 													"console.warn(\"Unknown scenarioType: \" + scenarioType);\r",
+													"pm.response.json().message;\r",
 													"}\r",
 													"});\r",
 													"////////Test 2\r",
