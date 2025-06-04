@@ -569,14 +569,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
@@ -643,14 +643,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
@@ -675,14 +675,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
@@ -707,14 +707,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
@@ -755,14 +755,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
@@ -821,14 +821,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
