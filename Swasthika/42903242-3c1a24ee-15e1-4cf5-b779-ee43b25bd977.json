@@ -1247,7 +1247,7 @@
 													"}\r",
 													"\r",
 													"// Generate names\r",
-													"var usrStreet = generateRandomName(4); // e.g., \"Zogmir\"\r",
+													"var usrStreet = generateRandomName(4)+\"%%\"; // e.g., \"Zogmir\"\r",
 													"\r",
 													"// Save to environment\r",
 													"\r",
