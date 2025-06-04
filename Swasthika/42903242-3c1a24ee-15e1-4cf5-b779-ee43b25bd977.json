@@ -1636,7 +1636,7 @@
 									"response": []
 								},
 								{
-									"name": "UpdateUserzipCode Copy",
+									"name": "Update InvalidzipCode",
 									"event": [
 										{
 											"listen": "prerequest",
