@@ -625,7 +625,7 @@
 									]
 								},
 								{
-									"name": "update UserFirstName Copy",
+									"name": "uupdate InvalidUserFirstName",
 									"event": [
 										{
 											"listen": "prerequest",
