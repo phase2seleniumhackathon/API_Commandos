@@ -203,7 +203,7 @@
 											"request": {
 												"method": "GET",
 												"header": [],
-												"url": "{{baseUrl}}/uap/user/1"
+												"url": "{{baseUrl}}/uap/user/12344"
 											},
 											"response": []
 										},
