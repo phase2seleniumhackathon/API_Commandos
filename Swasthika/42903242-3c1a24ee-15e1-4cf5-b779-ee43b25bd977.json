@@ -974,7 +974,7 @@
 									"response": []
 								},
 								{
-									"name": "UpdateUserContactNumber Copy",
+									"name": "Update InavlidContactNumber",
 									"id": "42903242-c722bd45-db94-456a-a6c3-5ce7837e857a",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
