@@ -974,6 +974,70 @@
 									"response": []
 								},
 								{
+									"name": "UpdateUserContactNumber Copy",
+									"id": "42903242-c722bd45-db94-456a-a6c3-5ce7837e857a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userContactNumber\": \"{{random_phone}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserContactNumber Copy",
+									"id": "42903242-36d3c0fd-3ddf-42d3-bde2-30f25cf19cce",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userContactNumber\": \"{{random_phone}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "UpdateUserPlotNumber",
 									"event": [
 										{
