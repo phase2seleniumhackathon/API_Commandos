@@ -886,6 +886,38 @@
 									"response": []
 								},
 								{
+									"name": "UpdateUserEmailId Copy",
+									"id": "42903242-c53c68f3-679a-47eb-816e-e14a384baab2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userEmailId\": \"{{user_email}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "UpdateUserContactNumber",
 									"id": "42903242-8895de00-1dc7-435f-9a1e-64e24a2219a5",
 									"protocolProfileBehavior": {
