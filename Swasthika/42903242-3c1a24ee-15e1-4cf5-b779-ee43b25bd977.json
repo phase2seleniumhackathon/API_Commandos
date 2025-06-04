@@ -1015,7 +1015,7 @@
 													"\r",
 													"\r",
 													"// Generate phone number: starts with 9 + 9 random digits\r",
-													"let randomPhone = '9' +\"&\"+Math.random().toString().substring(2, 13);\r",
+													"let randomPhone = '9' +\"&\"+Math.random().toString().substring(2, 4);\r",
 													"\r",
 													"\r",
 													"\r",
