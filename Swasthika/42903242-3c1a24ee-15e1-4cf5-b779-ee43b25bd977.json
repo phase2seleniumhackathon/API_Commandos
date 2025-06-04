@@ -1364,6 +1364,76 @@
 									"response": []
 								},
 								{
+									"name": "UpdateUserState Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "198201fa-60f2-497a-ab30-976eaf6baacf",
+												"exec": [
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrState = generateRandomName(3); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_state_address\", usrState);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"State:\", usrState);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-f956c25a-ee13-4725-a702-91855acf59d4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"state\":\"{{user_state_address}}\"\r\n}\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "UpdateUserCountry",
 									"event": [
 										{
