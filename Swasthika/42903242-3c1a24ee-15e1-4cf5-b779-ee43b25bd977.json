@@ -743,6 +743,43 @@
 								},
 								{
 									"name": "Update UserLastName",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "38b9ffa9-1c16-443d-ad10-967143a84218",
+												"exec": [
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"\r",
+													"\r",
+													"// Generate names\r",
+													"var usrLastName = generateRandomName(6)+\"12\"; // e.g., \"Zogmir\"\r",
+													"\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"user_last_name\", usrLastName);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Last Name:\", usrLastName);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "42903242-6dd90f97-c2c6-4175-8991-b5b722a854c0",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
