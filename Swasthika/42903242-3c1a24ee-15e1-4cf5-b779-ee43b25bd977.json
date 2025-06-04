@@ -760,8 +760,6 @@
 													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
 													"}\r",
 													"\r",
-													"\r",
-													"\r",
 													"// Generate names\r",
 													"var usrLastName = generateRandomName(6)+\"12\"; // e.g., \"Zogmir\"\r",
 													"\r",
