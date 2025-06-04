@@ -625,6 +625,123 @@
 									]
 								},
 								{
+									"name": "update UserFirstName Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "a112b492-228c-48b8-95ba-517a4dd800ba",
+												"exec": [
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"\r",
+													"\r",
+													"// Generate names\r",
+													"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"First Name:\", usrFirstName);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-9b3e77ca-2714-47ce-93f2-66a2da75d795",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userFirstName\": \"{{user_first_name}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "42903242-87201ced-5219-4a64-8c74-d30abd5200c9",
+											"name": "default response",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/updateuserfields/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"updateuserfields",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"userContactNumber\": 42275402,\n  \"userEmailId\": \"2_RYiA4T-9S7dqMJ_F-6RHRZfSj1R_ysRS3_X-AP4r8Pg_xQ9.Jb6rpckJKHy@gBEWFfP.XqdOaRXIYVIs\",\n  \"userFirstName\": \"nQdtqMnReJA\",\n  \"userLastName\": \"atjgqsSv\",\n  \"userId\": -99249403,\n  \"creationTime\": \"2012-12-10T19:55:18.698Z\",\n  \"lastModTime\": \"2023-09-09T21:03:28.880Z\",\n  \"userAddress\": {\n    \"addressId\": -98570114,\n    \"plotNumber\": \"officia\",\n    \"street\": \"irure ipsum Lorem nulla\",\n    \"state\": \"non aliquip eu\",\n    \"country\": \"laboris do\",\n    \"zipCode\": -86021888\n  }\n}"
+										}
+									]
+								},
+								{
 									"name": "UpdateUserLastName",
 									"id": "42903242-6dd90f97-c2c6-4175-8991-b5b722a854c0",
 									"protocolProfileBehavior": {
