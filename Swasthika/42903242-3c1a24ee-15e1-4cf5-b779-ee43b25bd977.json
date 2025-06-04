@@ -943,6 +943,36 @@
 								},
 								{
 									"name": "UpdateUserContactNumber",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "2305f673-5370-40c5-8284-9f225cd72d87",
+												"exec": [
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"random_phone\", randomPhone);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Phone Number:\", randomPhone);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "42903242-8895de00-1dc7-435f-9a1e-64e24a2219a5",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
