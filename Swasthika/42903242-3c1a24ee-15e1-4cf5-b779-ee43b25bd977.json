@@ -886,7 +886,7 @@
 									"response": []
 								},
 								{
-									"name": "UpdateUserEmailId Copy",
+									"name": "Update InvalidEmailId",
 									"id": "42903242-c53c68f3-679a-47eb-816e-e14a384baab2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
