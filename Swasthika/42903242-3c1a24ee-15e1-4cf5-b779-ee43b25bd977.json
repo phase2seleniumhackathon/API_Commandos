@@ -891,14 +891,14 @@
 											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"state\":\"{{user_state_address}}\"\r\n}\r\n}\r\n"
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
@@ -962,14 +962,14 @@
 											"raw": "\r\n\r\n{\r\n\"userAddress\":\r\n{\r\n\r\n  \"country\":\"{{user_country_address}}\"\r\n}\r\n}\r\n"
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
