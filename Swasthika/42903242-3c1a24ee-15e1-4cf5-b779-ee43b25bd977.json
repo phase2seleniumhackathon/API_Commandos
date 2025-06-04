@@ -742,7 +742,7 @@
 									]
 								},
 								{
-									"name": "UpdateUserLastName",
+									"name": "Update UserLastName",
 									"id": "42903242-6dd90f97-c2c6-4175-8991-b5b722a854c0",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
