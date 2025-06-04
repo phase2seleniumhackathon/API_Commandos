@@ -22,20 +22,9 @@
 											"name": "get User By First Name",
 											"event": [
 												{
-													"listen": "prerequest",
-													"script": {
-														"id": "46d6b33e-7cd1-4ef0-973d-083e5f456de0",
-														"exec": [
-															""
-														],
-														"type": "text/javascript",
-														"packages": {}
-													}
-												},
-												{
 													"listen": "test",
 													"script": {
-														"id": "3c60b335-2353-44cc-b593-aee1c4a44ac1",
+														"id": "982a3b57-d611-4f43-ab65-abd8a2b735a9",
 														"exec": [
 															"const scenarioType = pm.iterationData.get(\"caseType\");\r",
 															"\r",
@@ -83,6 +72,60 @@
 															"});\r",
 															"}\r",
 															"\r",
+															"const schema = {\r",
+															"  \"type\": \"object\",\r",
+															"  \"properties\": {\r",
+															"    \"id\": { \"type\": \"integer\" },\r",
+															"    \"username\": { \"type\": \"string\" },\r",
+															"    \"active\": { \"type\": \"boolean\" }\r",
+															"  },\r",
+															"  \"required\": [\"id\", \"username\", \"active\"]\r",
+															"};\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"  pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Response matches expected schema\", function () {\r",
+															"  pm.response.to.have.jsonSchema(schema);\r",
+															"});\r",
+															"\r",
+															"const schema = {\r",
+															"  \"type\": \"object\",\r",
+															"  \"properties\": {\r",
+															"    \"userFirstName\": { \"type\": \"string\" },\r",
+															"    \"userLastName\": { \"type\": \"string\" },\r",
+															"    \"userContactNumber\": { \"type\": \"integer\" },\r",
+															"    \"userEmailId\": { \"type\": \"string\", \"format\": \"email\" },\r",
+															"    \"userAddress\": {\r",
+															"      \"type\": \"object\",\r",
+															"      \"properties\": {\r",
+															"        \"plotNumber\": { \"type\": \"string\" },\r",
+															"        \"street\": { \"type\": \"string\" },\r",
+															"        \"state\": { \"type\": \"string\" },\r",
+															"        \"country\": { \"type\": \"string\" },\r",
+															"        \"zipCode\": { \"type\": \"integer\" }\r",
+															"      },\r",
+															"      \"required\": [\"plotNumber\", \"street\", \"state\", \"country\", \"zipCode\"]\r",
+															"    }\r",
+															"  },\r",
+															"  \"required\": [\"userFirstName\", \"userLastName\", \"userContactNumber\", \"userEmailId\", \"userAddress\"]\r",
+															"};\r",
+															"\r",
+															"pm.test(\"Validate simplified user schema\", function () {\r",
+															"  pm.response.to.have.status(200);\r",
+															"  pm.response.to.have.jsonSchema(schema);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "prerequest",
+													"script": {
+														"id": "6029bf93-eb7a-44da-a356-9e0b0f6e9123",
+														"exec": [
 															""
 														],
 														"type": "text/javascript",
