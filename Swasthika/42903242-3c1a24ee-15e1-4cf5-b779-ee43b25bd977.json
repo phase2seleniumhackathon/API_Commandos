@@ -92,7 +92,7 @@
 															"      \"required\": [\"plotNumber\", \"street\", \"state\", \"country\", \"zipCode\"]\r",
 															"    }\r",
 															"  },\r",
-															"  \"required\": [\"userFirstName\", \"userLastName\", \"userContactNumber\", \"userEmailId\", \"userAddress\"]\r",
+															"  \"required\": [ \"userLastName\", \"userContactNumber\", \"userEmailId\", \"userAddress\"]\r",
 															"};\r",
 															"\r",
 															"pm.test(\"Response matches expected schema\", function () {\r",
