@@ -1114,6 +1114,54 @@
 									"response": []
 								},
 								{
+									"name": "UpdateUserPlotNumber Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "0aa1c324-30dc-4fda-afcd-de8defe2381f",
+												"exec": [
+													"//Random Plot Number\r",
+													"let randomPlot = \"p1\" +\"-\"+Math.random().toString().substring(2, 4);\r",
+													"pm.environment.set(\"random_plot\", randomPlot);\r",
+													"console.log(\"Plot Number:\",randomPlot);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-1f44042d-21c7-4b73-a032-fded75d35f87",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"plotNumber\":\"{{random_plot}}\"\r\n}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "UpdateUserStreet",
 									"event": [
 										{
