@@ -646,7 +646,7 @@
 													"\r",
 													"\r",
 													"// Generate names\r",
-													"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"var usrFirstName = generateRandomName(6)+\"12\"; // e.g., \"Zogmir\"\r",
 													"\r",
 													"\r",
 													"// Save to environment\r",
