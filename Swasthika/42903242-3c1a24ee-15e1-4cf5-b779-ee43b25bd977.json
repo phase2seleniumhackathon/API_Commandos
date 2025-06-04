@@ -96,8 +96,9 @@
 															"};\r",
 															"\r",
 															"pm.test(\"Response matches expected schema\", function () {\r",
-															"  pm.response.to.have.jsonSchema(schema);\r",
 															"  console.log(\"Schema validation passed:\");\r",
+															"  pm.response.to.have.jsonSchema(schema);\r",
+															"\r",
 															"});"
 														],
 														"type": "text/javascript",
