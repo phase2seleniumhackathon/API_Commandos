@@ -774,7 +774,7 @@
 									"response": []
 								},
 								{
-									"name": "UpdateUserLastName Copy",
+									"name": "Update InvalidUserLastName",
 									"id": "42903242-6defa495-7ffd-465a-8d7f-7a9bf6da47a4",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
