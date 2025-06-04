@@ -248,14 +248,14 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{baseUrl}}/uap/user/saal",
+													"raw": "{{baseUrl}}/uap/user/12$44",
 													"host": [
 														"{{baseUrl}}"
 													],
 													"path": [
 														"uap",
 														"user",
-														"saal"
+														"12$44"
 													]
 												}
 											},
