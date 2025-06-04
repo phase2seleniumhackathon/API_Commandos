@@ -1,0 +1,2414 @@
+{
+	"info": {
+		"_postman_id": "42903242-3c1a24ee-15e1-4cf5-b779-ee43b25bd977",
+		"name": "USER API",
+		"description": "User API Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "uap",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "username",
+							"item": [
+								{
+									"name": "{userFirstName}",
+									"item": [
+										{
+											"name": "get User By First Name",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"id": "46d6b33e-7cd1-4ef0-973d-083e5f456de0",
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"id": "3c60b335-2353-44cc-b593-aee1c4a44ac1",
+														"exec": [
+															"const scenarioType = pm.iterationData.get(\"caseType\");\r",
+															"\r",
+															"pm.test(\"Validate the status code\", () => {\r",
+															"if (scenarioType === \"negative\") {\r",
+															"console.log(\"Actual status of scenarioType: \" + scenarioType + \" is \" + pm.response.code);\r",
+															"pm.response.to.have.status(404);\r",
+															"} else if (scenarioType === \"positive\") {\r",
+															"console.log(\"Actual status of scenarioType: \" + scenarioType + \" is \" + pm.response.code);\r",
+															"// const errorMessage = pm.response.json().message;\r",
+															"// pm.expect(errorMessage).to.include(\"user FirstName is mandatory and should contain alphabets only\");\r",
+															"pm.response.to.have.status(200);\r",
+															"} else {\r",
+															"console.warn(\"Unknown scenarioType: \" + scenarioType);\r",
+															"}\r",
+															"});\r",
+															"////////Test 2\r",
+															"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // e.g., \"200\" or \"404 NOT_FOUND\"\r",
+															"const expectedName = pm.iterationData.get(\"userFirstName\");\r",
+															"\r",
+															"const response = pm.response.json();\r",
+															"\r",
+															"// Debug logs\r",
+															"console.log(\"Expected Status:\", expectedStatus);\r",
+															"console.log(\"Expected Name:\", expectedName);\r",
+															"console.log(\"Actual Response:\", response);\r",
+															"console.log(\"Actual Response status :\", response.status);\r",
+															"\r",
+															"// If response is an array and expectedStatus is \"200\"\r",
+															"if (expectedStatus === \"200\") {\r",
+															"pm.test(\"User first name matches expected\", function () {\r",
+															"pm.expect(Array.isArray(response)).to.be.true;\r",
+															"pm.expect(response.length).to.be.greaterThan(0);\r",
+															"pm.expect(response[0].userFirstName).to.eql(expectedName);\r",
+															"});\r",
+															"}\r",
+															"\r",
+															"// If it's a 404-style response (not array)\r",
+															"if (expectedStatus === \"404 NOT_FOUND\") {\r",
+															"pm.test(\"User not found message is correct\", function () {\r",
+															"const expectedMessage = `User with userFirstName ${expectedName} not found!`;\r",
+															"//pm.expect(response.status).to.eql(expectedStatus);\r",
+															"pm.expect(response.status).to.eql(\"404 NOT_FOUND\")\r",
+															"//pm.expect(response.message).to.eql(expectedMessage);\r",
+															"});\r",
+															"}\r",
+															"\r",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "42903242-90144721-11bc-4fee-9eea-38f77b7fc133",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/uap/users/username/{{userFirstName}}",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"users",
+														"username",
+														"{{userFirstName}}"
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "42903242-fb915eac-4cd8-40b1-bb49-8b5ea2ddf4d2",
+													"name": "default response",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/uap/users/username/:userFirstName",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"uap",
+																"users",
+																"username",
+																":userFirstName"
+															],
+															"variable": [
+																{
+																	"key": "userFirstName"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "[\n  {\n    \"userContactNumber\": -85291528,\n    \"userEmailId\": \"GRDrtPEAM.YcOdGQLyH3P@sJ6.GsnVFsjN\",\n    \"userFirstName\": \"tE \",\n    \"userLastName\": \"AsmRCL\",\n    \"userId\": 28214685,\n    \"creationTime\": \"1972-08-03T01:31:34.179Z\",\n    \"lastModTime\": \"1972-05-19T01:14:42.611Z\",\n    \"userAddress\": {\n      \"addressId\": -47141086,\n      \"plotNumber\": \"magna sunt ut\",\n      \"street\": \"laborum ea\",\n      \"state\": \"occaecat ad\",\n      \"country\": \"est occaecat aute\",\n      \"zipCode\": 12873791\n    }\n  },\n  {\n    \"userContactNumber\": 82173705,\n    \"userEmailId\": \"ZHr8X3_WYy2al4.AMyRE7pbIdF-aD27KGf.vRcbn_Et53zbg@I.akzRYYPDq\",\n    \"userFirstName\": \"kMelRhVQi\",\n    \"userLastName\": \"pZYcpMVzR\",\n    \"userId\": 18229948,\n    \"creationTime\": \"1966-06-20T04:57:59.174Z\",\n    \"lastModTime\": \"1945-08-11T22:46:24.935Z\",\n    \"userAddress\": {\n      \"addressId\": -10495428,\n      \"plotNumber\": \"dolore consectetur\",\n      \"street\": \"amet fugiat nisi\",\n      \"state\": \"dolore amet\",\n      \"country\": \"dolor eu eni\",\n      \"zipCode\": 87056056\n    }\n  }\n]"
+												}
+											]
+										}
+									],
+									"id": "42903242-526eae7d-2259-48e8-8fc3-cf8383578ba7"
+								}
+							],
+							"id": "42903242-3b93f24d-9977-4dda-97f8-8436aef7c695"
+						},
+						{
+							"name": "get All Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c88ce135-edcc-4af4-bee7-4453ea9bb4c5",
+										"exec": [
+											"// Retrieve data from iteration (data file or manually provided body)\r",
+											"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+											"const caseType = pm.iterationData.get(\"caseType\");\r",
+											"\r",
+											"// Expected user data for positive tests\r",
+											"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+											"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+											"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+											"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+											"const expectedStreet = pm.iterationData.get(\"street\");\r",
+											"const expectedState = pm.iterationData.get(\"state\");\r",
+											"const expectedCountry = pm.iterationData.get(\"country\");\r",
+											"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+											"\r",
+											"// Convert to number just in case\r",
+											"const actualStatusCode = pm.response.code;\r",
+											"const expectedStatusCode = Number(expectedStatus);\r",
+											"\r",
+											"// Log both for debugging\r",
+											"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+											"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+											"\r",
+											"// -----------------  Status Code Assertion -----------------\r",
+											"pm.test(\"Status code matches expected\", function () {\r",
+											"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+											"});\r",
+											"\r",
+											"// ----------------- Response Body Validations -----------------\r",
+											"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+											"    const jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"Response contains expected user details\", function () {\r",
+											"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+											"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+											"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+											"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+											"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+											"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+											"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+											"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+											"    });\r",
+											"} else if (actualStatusCode === 400) {\r",
+											"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"400 Response:\", jsonData);\r",
+											"        // Optionally assert error message if your API returns it\r",
+											"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+											"    });\r",
+											"} else if (actualStatusCode === 409) {\r",
+											"    pm.test(\"Conflict - User already exists\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"409 Response:\", jsonData);\r",
+											"        // Optionally assert error message\r",
+											"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+											"    });\r",
+											"} else {\r",
+											"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+											"}\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-c0f9e1c0-39fc-4506-9897-8cc90add788c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/uap/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "42903242-ab1b0541-938c-4532-b38b-8960e72b9009",
+									"name": "default response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "[\n  {\n    \"userContactNumber\": -85291528,\n    \"userEmailId\": \"GRDrtPEAM.YcOdGQLyH3P@sJ6.GsnVFsjN\",\n    \"userFirstName\": \"tE \",\n    \"userLastName\": \"AsmRCL\",\n    \"userId\": 28214685,\n    \"creationTime\": \"1972-08-03T01:31:34.179Z\",\n    \"lastModTime\": \"1972-05-19T01:14:42.611Z\",\n    \"userAddress\": {\n      \"addressId\": -47141086,\n      \"plotNumber\": \"magna sunt ut\",\n      \"street\": \"laborum ea\",\n      \"state\": \"occaecat ad\",\n      \"country\": \"est occaecat aute\",\n      \"zipCode\": 12873791\n    }\n  },\n  {\n    \"userContactNumber\": 82173705,\n    \"userEmailId\": \"ZHr8X3_WYy2al4.AMyRE7pbIdF-aD27KGf.vRcbn_Et53zbg@I.akzRYYPDq\",\n    \"userFirstName\": \"kMelRhVQi\",\n    \"userLastName\": \"pZYcpMVzR\",\n    \"userId\": 18229948,\n    \"creationTime\": \"1966-06-20T04:57:59.174Z\",\n    \"lastModTime\": \"1945-08-11T22:46:24.935Z\",\n    \"userAddress\": {\n      \"addressId\": -10495428,\n      \"plotNumber\": \"dolore consectetur\",\n      \"street\": \"amet fugiat nisi\",\n      \"state\": \"dolore amet\",\n      \"country\": \"dolor eu eni\",\n      \"zipCode\": 87056056\n    }\n  }\n]"
+								}
+							]
+						}
+					],
+					"id": "42903242-b0172ad4-a878-4bef-95a7-4dd2287a946a"
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "get User By Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4147b51e-4ff4-4015-87ec-fdd8887178b9",
+												"exec": [
+													"const scenarioType = pm.iterationData.get(\"caseType\");\r",
+													"\r",
+													"pm.test(\"Validate the status code\", () => {\r",
+													"if (scenarioType === \"negative\") {\r",
+													"console.log(\"Actual status of scenarioType: \" + scenarioType + \" is \" + pm.response.code);\r",
+													"pm.response.to.have.status(404);\r",
+													"} else if (scenarioType === \"positive\") {\r",
+													"console.log(\"Actual status of scenarioType: \" + scenarioType + \" is \" + pm.response.code);\r",
+													"// const errorMessage = pm.response.json().message;\r",
+													"// pm.expect(errorMessage).to.include(\"user FirstName is mandatory and should contain alphabets only\");\r",
+													"pm.response.to.have.status(200);\r",
+													"} else {\r",
+													"console.warn(\"Unknown scenarioType: \" + scenarioType);\r",
+													"}\r",
+													"});\r",
+													"////////Test 2\r",
+													"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // e.g., \"200\" or \"404 NOT_FOUND\"\r",
+													"const expecteduserId = pm.iterationData.get(\"userId\");\r",
+													"\r",
+													"const response = pm.response.json();\r",
+													"\r",
+													"// Debug logs\r",
+													"console.log(\"Expected Status:\", expectedStatus);\r",
+													"console.log(\"Expected ID:\", expecteduserId);\r",
+													"console.log(\"Actual Response:\", response);\r",
+													"console.log(\"Actual Response status :\", response.status);\r",
+													"\r",
+													"// If response is an array and expectedStatus is \"200\"\r",
+													"if (expectedStatus === \"200\") {\r",
+													"pm.test(\"User first name matches expected\", function () {\r",
+													"pm.expect(Array.isArray(response)).to.be.true;\r",
+													"pm.expect(response.length).to.be.greaterThan(0);\r",
+													"pm.expect(response[0].userId).to.eql(expecteduserId);\r",
+													"});\r",
+													"}\r",
+													"\r",
+													"// If it's a 404-style response (not array)\r",
+													"if (expectedStatus === \"404 NOT_FOUND\") {\r",
+													"pm.test(\"User not found message is correct\", function () {\r",
+													"const expectedMessage = `User with userId ${expecteduserId} not found!`;\r",
+													"//pm.expect(response.status).to.eql(expectedStatus);\r",
+													"pm.expect(response.status).to.eql(\"404 NOT_FOUND\")\r",
+													"//pm.expect(response.message).to.eql(expectedMessage);\r",
+													"});\r",
+													"}\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-9e8ba64e-8f7f-47ef-a0e2-b55289ebfa83",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/user/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"user",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "42903242-efd17553-8ee5-413b-889c-c48b64216df5",
+											"name": "default response",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/user/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"user",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"userContactNumber\": 42275402,\n  \"userEmailId\": \"2_RYiA4T-9S7dqMJ_F-6RHRZfSj1R_ysRS3_X-AP4r8Pg_xQ9.Jb6rpckJKHy@gBEWFfP.XqdOaRXIYVIs\",\n  \"userFirstName\": \"nQdtqMnReJA\",\n  \"userLastName\": \"atjgqsSv\",\n  \"userId\": -99249403,\n  \"creationTime\": \"2012-12-10T19:55:18.698Z\",\n  \"lastModTime\": \"2023-09-09T21:03:28.880Z\",\n  \"userAddress\": {\n    \"addressId\": -98570114,\n    \"plotNumber\": \"officia\",\n    \"street\": \"irure ipsum Lorem nulla\",\n    \"state\": \"non aliquip eu\",\n    \"country\": \"laboris do\",\n    \"zipCode\": -86021888\n  }\n}"
+										}
+									]
+								}
+							],
+							"id": "42903242-b0e8b954-0342-4d6d-b9bf-13020393bad2"
+						},
+						{
+							"name": "CreateGetUpdateGetDelete",
+							"item": [
+								{
+									"name": "New Request",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "d51692b1-27a1-4f5c-9cc7-4a65467a3b80",
+												"exec": [
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+													"\r",
+													"// Use the random string for other fields\r",
+													"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+													"pm.environment.set(\"user_last_name\", usrLastName);\r",
+													"pm.environment.set(\"user_email\", useremail);\r",
+													"pm.environment.set(\"random_phone\", randomPhone);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"First Name:\", usrFirstName);\r",
+													"console.log(\"Last Name:\", usrLastName);\r",
+													"console.log(\"Email:\", useremail);\r",
+													"console.log(\"Phone Number:\", randomPhone);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "692bacb5-0e3a-4302-a892-bcc426ba9a2d",
+												"exec": [
+													"let jsonData = pm.response.json();\r",
+													"pm.environment.set(\"usrId\", jsonData.userId);\r",
+													"\r",
+													"pm.environment.set(\"usrFirstName\", jsonData.userFirstName);\r",
+													"\r",
+													"// Retrieve data from iteration (data file or manually provided body)\r",
+													"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+													"const caseType = pm.iterationData.get(\"caseType\");\r",
+													"\r",
+													"// Expected user data for positive tests\r",
+													"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+													"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+													"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+													"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+													"const expectedStreet = pm.iterationData.get(\"street\");\r",
+													"const expectedState = pm.iterationData.get(\"state\");\r",
+													"const expectedCountry = pm.iterationData.get(\"country\");\r",
+													"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+													"\r",
+													"// Convert to number just in case\r",
+													"const actualStatusCode = pm.response.code;\r",
+													"const expectedStatusCode = Number(expectedStatus);\r",
+													"\r",
+													"// Log both for debugging\r",
+													"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+													"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+													"\r",
+													"// -----------------  Status Code Assertion -----------------\r",
+													"pm.test(\"Status code matches expected\", function () {\r",
+													"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+													"});\r",
+													"\r",
+													"// ----------------- Response Body Validations -----------------\r",
+													"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+													"    const jsonData = pm.response.json();\r",
+													"\r",
+													"    pm.test(\"Response contains expected user details\", function () {\r",
+													"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+													"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+													"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+													"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+													"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+													"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+													"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+													"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+													"    });\r",
+													"} else if (actualStatusCode === 400) {\r",
+													"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+													"        const jsonData = pm.response.json();\r",
+													"        console.warn(\"400 Response:\", jsonData);\r",
+													"        // Optionally assert error message if your API returns it\r",
+													"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+													"    });\r",
+													"} else if (actualStatusCode === 409) {\r",
+													"    pm.test(\"Conflict - User already exists\", function () {\r",
+													"        const jsonData = pm.response.json();\r",
+													"        console.warn(\"409 Response:\", jsonData);\r",
+													"        // Optionally assert error message\r",
+													"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+													"    });\r",
+													"} else {\r",
+													"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+													"}\r",
+													"//validation for headers\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													"\r",
+													"//validation for headers\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-7190bc6c-037b-4720-8d93-291174ef87ba",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/createusers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"createusers"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ded22dc2-655c-4c42-bcf9-bad823a5635d",
+												"exec": [
+													"let jsonData = pm.response.json();\r",
+													"pm.environment.set(\"userId\", jsonData.userId);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-424261d1-61a4-419b-a18e-587e60257ed8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/users/username/{{usrFirstName}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"users",
+												"username",
+												"{{usrFirstName}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f8e18c5f-3cc5-4384-9757-fba99c70952f",
+												"exec": [
+													"// Retrieve data from iteration (data file or manually provided body)\r",
+													"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+													"const caseType = pm.iterationData.get(\"caseType\");\r",
+													"\r",
+													"// Expected user data for positive tests\r",
+													"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+													"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+													"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+													"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+													"const expectedStreet = pm.iterationData.get(\"street\");\r",
+													"const expectedState = pm.iterationData.get(\"state\");\r",
+													"const expectedCountry = pm.iterationData.get(\"country\");\r",
+													"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+													"\r",
+													"// Convert to number just in case\r",
+													"const actualStatusCode = pm.response.code;\r",
+													"const expectedStatusCode = Number(expectedStatus);\r",
+													"\r",
+													"// Log both for debugging\r",
+													"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+													"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+													"\r",
+													"// -----------------  Status Code Assertion -----------------\r",
+													"pm.test(\"Status code matches expected\", function () {\r",
+													"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+													"});\r",
+													"\r",
+													"// ----------------- Response Body Validations -----------------\r",
+													"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+													"    const jsonData = pm.response.json();\r",
+													"\r",
+													"    pm.test(\"Response contains expected user details\", function () {\r",
+													"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+													"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+													"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+													"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+													"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+													"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+													"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+													"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+													"    });\r",
+													"} else if (actualStatusCode === 400) {\r",
+													"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+													"        const jsonData = pm.response.json();\r",
+													"        console.warn(\"400 Response:\", jsonData);\r",
+													"        // Optionally assert error message if your API returns it\r",
+													"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+													"    });\r",
+													"} else if (actualStatusCode === 409) {\r",
+													"    pm.test(\"Conflict - User already exists\", function () {\r",
+													"        const jsonData = pm.response.json();\r",
+													"        console.warn(\"409 Response:\", jsonData);\r",
+													"        // Optionally assert error message\r",
+													"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+													"    });\r",
+													"} else {\r",
+													"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+													"}\r",
+													"//validation for headers\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													"\r",
+													"//validation for headers\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-ba14efc6-cabe-451c-8cbe-789f9d7962b9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userLastName\": \"Ghosh\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{usrId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{usrId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2ad0b830-967e-4407-ae44-62ab76cd74dd",
+												"exec": [
+													"let jsonData = pm.response.json();\r",
+													"pm.environment.set(\"userId\", jsonData.userId);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-3f468379-c689-417c-93aa-298170d84f55",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/users/username/{{usrFirstName}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"users",
+												"username",
+												"{{usrFirstName}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "42903242-1c07b0d7-bad1-4785-bff2-0156d60d2b54",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/deleteuser/{{usrId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"deleteuser",
+												"{{usrId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "New Request",
+									"id": "42903242-56262a88-3777-4bc0-a308-4bddbdae6e02",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/users/username/{{usrFirstName}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"users",
+												"username",
+												"{{usrFirstName}}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "42903242-88be3b64-ec4e-4b29-ba1a-37b952be5b53"
+						}
+					],
+					"id": "42903242-225b18e8-617d-48f8-808b-13353adaa21d"
+				},
+				{
+					"name": "updateuserfields",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "update UserFirstName",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "a112b492-228c-48b8-95ba-517a4dd800ba",
+												"exec": [
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"\r",
+													"\r",
+													"// Generate names\r",
+													"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+													"\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"First Name:\", usrFirstName);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-a893ceba-1f99-455c-94f2-96eb6940b376",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userFirstName\": \"{{user_first_name}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "42903242-a504b1ce-d7ac-49ec-aa37-24e10027e03c",
+											"name": "default response",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/updateuserfields/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"updateuserfields",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"userContactNumber\": 42275402,\n  \"userEmailId\": \"2_RYiA4T-9S7dqMJ_F-6RHRZfSj1R_ysRS3_X-AP4r8Pg_xQ9.Jb6rpckJKHy@gBEWFfP.XqdOaRXIYVIs\",\n  \"userFirstName\": \"nQdtqMnReJA\",\n  \"userLastName\": \"atjgqsSv\",\n  \"userId\": -99249403,\n  \"creationTime\": \"2012-12-10T19:55:18.698Z\",\n  \"lastModTime\": \"2023-09-09T21:03:28.880Z\",\n  \"userAddress\": {\n    \"addressId\": -98570114,\n    \"plotNumber\": \"officia\",\n    \"street\": \"irure ipsum Lorem nulla\",\n    \"state\": \"non aliquip eu\",\n    \"country\": \"laboris do\",\n    \"zipCode\": -86021888\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "UpdateUserLastName",
+									"id": "42903242-6dd90f97-c2c6-4175-8991-b5b722a854c0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userLastName\": \"{{user_last_name}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserEmailId",
+									"id": "42903242-034885d9-3488-442e-a6fc-b88c8de82641",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userEmailId\": \"{{user_email}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserContactNumber",
+									"id": "42903242-8895de00-1dc7-435f-9a1e-64e24a2219a5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userContactNumber\": \"{{random_phone}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserPlotNumber",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "0aa1c324-30dc-4fda-afcd-de8defe2381f",
+												"exec": [
+													"//Random Plot Number\r",
+													"let randomPlot = \"p1\" +\"-\"+Math.random().toString().substring(2, 4);\r",
+													"pm.environment.set(\"random_plot\", randomPlot);\r",
+													"console.log(\"Plot Number:\",randomPlot);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-15d44bcc-b443-465c-a4e5-86e9712bc985",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"plotNumber\":\"{{random_plot}}\"\r\n}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserStreet",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "cf611947-3787-4761-8ef9-74e5738f5011",
+												"exec": [
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrStreet = generateRandomName(4); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_street_address\", usrStreet);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Street:\", usrStreet);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-763bb567-db26-426b-8756-1ce0e1a05b58",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n\r\n{\r\n\"userAddress\":\r\n{\r\n\r\n  \"street\":\"{{user_street_address}}\"\r\n}\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserState",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "198201fa-60f2-497a-ab30-976eaf6baacf",
+												"exec": [
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrState = generateRandomName(3); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_state_address\", usrState);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"State:\", usrState);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-bcd92eed-9a56-4634-a96c-aebd7114cf67",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"state\":\"{{user_state_address}}\"\r\n}\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserCountry",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "501a3888-745a-4543-84f6-6295026e5a37",
+												"exec": [
+													"\r",
+													"// Before Request\r",
+													"// Function to generate a random alphabetic string of given length\r",
+													"function generateRandomName(length) {\r",
+													"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+													"    let result = '';\r",
+													"    for (let i = 0; i < length; i++) {\r",
+													"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+													"    }\r",
+													"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+													"}\r",
+													"\r",
+													"// Generate names\r",
+													"var usrCountry = generateRandomName(3); // e.g., \"Zogmir\"\r",
+													"\r",
+													"// Save to environment\r",
+													"\r",
+													"pm.environment.set(\"user_country_address\", usrCountry);\r",
+													"\r",
+													"// Debug output\r",
+													"console.log(\"Country:\", usrCountry);\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-609f7c45-b3df-4be0-aa34-6314d0bfb7f8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n\r\n{\r\n\"userAddress\":\r\n{\r\n\r\n  \"country\":\"{{user_country_address}}\"\r\n}\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateUserzipCode",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "ea880ffa-6e76-4cd4-97cc-8ac9a65b14d0",
+												"exec": [
+													"// Before Request\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomZipCode = '9' + Math.random().toString().substring(2, 5);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random_zip_code\", randomZipCode);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Zip Code:\", randomZipCode);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-3b8e8b20-e303-481a-ab5a-6eb8e81ebf01",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"zipCode\":\"{{random_zip_code}}\"\r\n}\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "42903242-485c2b98-a8e6-4736-8468-0eafb904af92",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f8e6c5c9-d9bd-45ee-b5c6-e311fbf30119",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"var random = Math.random().toString().substring(2, 12);\r",
+											"// Function to generate a random alphabetic string of given length\r",
+											"function generateRandomName(length) {\r",
+											"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"    let result = '';\r",
+											"    for (let i = 0; i < length; i++) {\r",
+											"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"    }\r",
+											"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"}\r",
+											"\r",
+											"\r",
+											"\r",
+											"// Generate names\r",
+											"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+											"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+											"\r",
+											"// Use the random string for other fields\r",
+											"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+											"\r",
+											"// Generate phone number: starts with 9 + 9 random digits\r",
+											"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+											"\r",
+											"//Random Plot Number\r",
+											"let randomPlot = \"p1\" +\"-\"+Math.random().toString().substring(2, 4);\r",
+											"pm.environment.set(\"random_plot\", randomPlot);\r",
+											"\r",
+											"\r",
+											"\r",
+											"// Save to environment\r",
+											"pm.environment.set(\"random\", random);\r",
+											"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+											"pm.environment.set(\"user_last_name\", usrLastName);\r",
+											"pm.environment.set(\"user_email\", useremail);\r",
+											"pm.environment.set(\"random_phone\", randomPhone);\r",
+											"pm.environment.set(\"random_plot\",randomPlot)\r",
+											"\r",
+											"// Debug output\r",
+											"console.log(\"First Name:\", usrFirstName);\r",
+											"console.log(\"Last Name:\", usrLastName);\r",
+											"console.log(\"Email:\", useremail);\r",
+											"console.log(\"Phone Number:\", randomPhone);\r",
+											"console.log(\"Plot Number:\",randomPlot);"
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "2ad6551c-6ee9-4a55-8d88-eedc32d2256f",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					],
+					"id": "42903242-cc22de05-91c3-434e-afe7-897df9f25986",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b5e01516-6611-4051-98ee-edd3a99f8c92",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"var random = Math.random().toString().substring(2, 12);\r",
+									"// Function to generate a random alphabetic string of given length\r",
+									"function generateRandomName(length) {\r",
+									"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+									"    let result = '';\r",
+									"    for (let i = 0; i < length; i++) {\r",
+									"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+									"    }\r",
+									"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"// Generate names\r",
+									"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+									"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+									"\r",
+									"// Use the random string for other fields\r",
+									"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+									"\r",
+									"// Generate phone number: starts with 9 + 9 random digits\r",
+									"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+									"\r",
+									"//Random Plot Number\r",
+									"let randomPlot = \"p1\" +\"-\"+Math.random().toString().substring(2, 4);\r",
+									"pm.environment.set(\"random_plot\", randomPlot);\r",
+									"\r",
+									"\r",
+									"\r",
+									"// Save to environment\r",
+									"pm.environment.set(\"random\", random);\r",
+									"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+									"pm.environment.set(\"user_last_name\", usrLastName);\r",
+									"pm.environment.set(\"user_email\", useremail);\r",
+									"pm.environment.set(\"random_phone\", randomPhone);\r",
+									"pm.environment.set(\"random_plot\",randomPlot)\r",
+									"\r",
+									"// Debug output\r",
+									"console.log(\"First Name:\", usrFirstName);\r",
+									"console.log(\"Last Name:\", usrLastName);\r",
+									"console.log(\"Email:\", useremail);\r",
+									"console.log(\"Phone Number:\", randomPhone);\r",
+									"console.log(\"Plot Number:\",randomPlot);"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d17a6e23-892a-451b-b2a0-b90335af19bb",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "deleteuser",
+					"item": [
+						{
+							"name": "username",
+							"item": [
+								{
+									"name": "delete By User Name",
+									"id": "42903242-fae97b1a-8846-4046-b774-5a7865fc3ab2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/deleteuser/username/{{userFirstName}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"deleteuser",
+												"username",
+												"{{userFirstName}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "42903242-fdcc61ac-c879-4c23-9166-56247cd276cf",
+											"name": "default response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/deleteuser/username/:userFirstName",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"deleteuser",
+														"username",
+														":userFirstName"
+													],
+													"variable": [
+														{
+															"key": "userFirstName"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"status\": \"dolore Ut\",\n  \"message\": \"\"\n}"
+										}
+									]
+								}
+							],
+							"id": "42903242-b5a345eb-e17b-4608-84a4-eac6e0978866"
+						},
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "delete By User Id",
+									"id": "42903242-f7a723d7-f2e1-48ed-9705-2299ab3d7b70",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/uap/deleteuser/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"deleteuser",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "42903242-8a777e6e-4413-4b98-a82d-3f7527713ed6",
+											"name": "default response",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/uap/deleteuser/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"deleteuser",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"status\": \"dolore Ut\",\n  \"message\": \"\"\n}"
+										}
+									]
+								}
+							],
+							"id": "42903242-1ecb9c30-0aa5-41fb-bf36-b459234e62e6"
+						}
+					],
+					"id": "42903242-cb63db08-d626-4b03-a34f-30272a5de269"
+				},
+				{
+					"name": "updateuser",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "update User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "474e360d-e22c-43ea-8204-f70150ea51dc",
+												"exec": [
+													"// Retrieve data from iteration (data file or manually provided body)\r",
+													"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+													"const caseType = pm.iterationData.get(\"caseType\");\r",
+													"\r",
+													"// Expected user data for positive tests\r",
+													"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+													"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+													"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+													"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+													"const expectedStreet = pm.iterationData.get(\"street\");\r",
+													"const expectedState = pm.iterationData.get(\"state\");\r",
+													"const expectedCountry = pm.iterationData.get(\"country\");\r",
+													"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+													"\r",
+													"// Convert to number just in case\r",
+													"const actualStatusCode = pm.response.code;\r",
+													"const expectedStatusCode = Number(expectedStatus);\r",
+													"\r",
+													"// Log both for debugging\r",
+													"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+													"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+													"\r",
+													"// -----------------  Status Code Assertion -----------------\r",
+													"pm.test(\"Status code matches expected\", function () {\r",
+													"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+													"});\r",
+													"\r",
+													"// ----------------- Response Body Validations -----------------\r",
+													"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+													"    const jsonData = pm.response.json();\r",
+													"\r",
+													"    pm.test(\"Response contains expected user details\", function () {\r",
+													"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+													"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+													"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+													"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+													"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+													"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+													"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+													"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+													"    });\r",
+													"} else if (actualStatusCode === 400) {\r",
+													"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+													"        const jsonData = pm.response.json();\r",
+													"        console.warn(\"400 Response:\", jsonData);\r",
+													"        // Optionally assert error message if your API returns it\r",
+													"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+													"    });\r",
+													"} else if (actualStatusCode === 409) {\r",
+													"    pm.test(\"Conflict - User already exists\", function () {\r",
+													"        const jsonData = pm.response.json();\r",
+													"        console.warn(\"409 Response:\", jsonData);\r",
+													"        // Optionally assert error message\r",
+													"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+													"    });\r",
+													"} else {\r",
+													"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+													"}\r",
+													"//validation for headers\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+													"});\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-7f513633-df94-49bf-9e0c-f22085b4cba4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userContactNumber\": \"{{userContactNumber}}\",\n  \"userEmailId\": \"{{userEmailId}}\",\n  \"userFirstName\": \"{{userFirstName}}\",\n  \"userLastName\": \"{{userLastName}}\",\n  \"userAddress\": {\n    \"plotNumber\": \"{{plotNumber}}\",\n    \"street\": \"{{street}}\",\n    \"state\": \"{{state}}\",\n    \"country\": \"{{country}}\",\n    \"zipCode\": \"{{zipCode}}\"\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuser/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuser",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "42903242-9bb70dd0-77c2-485d-99df-0814029a5fc7",
+											"name": "default response",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userContactNumber\": 42275402,\n  \"userEmailId\": \"2_RYiA4T-9S7dqMJ_F-6RHRZfSj1R_ysRS3_X-AP4r8Pg_xQ9.Jb6rpckJKHy@gBEWFfP.XqdOaRXIYVIs\",\n  \"userFirstName\": \"nQdtqMnReJA\",\n  \"userLastName\": \"atjgqsSv\",\n  \"userId\": -99249403,\n  \"creationTime\": \"2012-12-10T19:55:18.698Z\",\n  \"lastModTime\": \"2023-09-09T21:03:28.880Z\",\n  \"userAddress\": {\n    \"addressId\": -98570114,\n    \"plotNumber\": \"officia\",\n    \"street\": \"irure ipsum Lorem nulla\",\n    \"state\": \"non aliquip eu\",\n    \"country\": \"laboris do\",\n    \"zipCode\": -86021888\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/uap/updateuser/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"uap",
+														"updateuser",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n  \"userContactNumber\": 42275402,\n  \"userEmailId\": \"2_RYiA4T-9S7dqMJ_F-6RHRZfSj1R_ysRS3_X-AP4r8Pg_xQ9.Jb6rpckJKHy@gBEWFfP.XqdOaRXIYVIs\",\n  \"userFirstName\": \"nQdtqMnReJA\",\n  \"userLastName\": \"atjgqsSv\",\n  \"userId\": -99249403,\n  \"creationTime\": \"2012-12-10T19:55:18.698Z\",\n  \"lastModTime\": \"2023-09-09T21:03:28.880Z\",\n  \"userAddress\": {\n    \"addressId\": -98570114,\n    \"plotNumber\": \"officia\",\n    \"street\": \"irure ipsum Lorem nulla\",\n    \"state\": \"non aliquip eu\",\n    \"country\": \"laboris do\",\n    \"zipCode\": -86021888\n  }\n}"
+										}
+									]
+								}
+							],
+							"id": "42903242-613fd995-5e1a-443f-a41f-e85a3e3c9b54"
+						}
+					],
+					"id": "42903242-b5c51f09-0bc2-42c2-8f6a-3dd088a8d452"
+				},
+				{
+					"name": "createusers",
+					"item": [
+						{
+							"name": "create New User",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4d79aa54-c362-4090-a0e4-bc5a8ab73396",
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "6795cb6a-123a-44e6-a97c-ef0240cea7f2",
+										"exec": [
+											"// Retrieve data from iteration (data file or manually provided body)\r",
+											"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+											"const caseType = pm.iterationData.get(\"caseType\");\r",
+											"\r",
+											"// Expected user data for positive tests\r",
+											"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+											"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+											"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+											"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+											"const expectedStreet = pm.iterationData.get(\"street\");\r",
+											"const expectedState = pm.iterationData.get(\"state\");\r",
+											"const expectedCountry = pm.iterationData.get(\"country\");\r",
+											"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+											"\r",
+											"// Convert to number just in case\r",
+											"const actualStatusCode = pm.response.code;\r",
+											"const expectedStatusCode = Number(expectedStatus);\r",
+											"\r",
+											"// Log both for debugging\r",
+											"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+											"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+											"\r",
+											"// -----------------  Status Code Assertion -----------------\r",
+											"pm.test(\"Status code matches expected\", function () {\r",
+											"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+											"});\r",
+											"\r",
+											"// ----------------- Response Body Validations -----------------\r",
+											"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+											"    const jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"Response contains expected user details\", function () {\r",
+											"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+											"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+											"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+											"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+											"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+											"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+											"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+											"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+											"    });\r",
+											"} else if (actualStatusCode === 400) {\r",
+											"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"400 Response:\", jsonData);\r",
+											"        // Optionally assert error message if your API returns it\r",
+											"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+											"    });\r",
+											"} else if (actualStatusCode === 409) {\r",
+											"    pm.test(\"Conflict - User already exists\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"409 Response:\", jsonData);\r",
+											"        // Optionally assert error message\r",
+											"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+											"    });\r",
+											"} else {\r",
+											"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+											"}\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-2d571063-e58f-491c-a250-9121e89c9c0f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userContactNumber\": \"{{userContactNumber}}\",\n  \"userEmailId\": \"{{userEmailId}}\",\n  \"userFirstName\": \"{{userFirstName}}\",\n  \"userLastName\": \"{{userLastName}}\",\n  \"userAddress\": {\n    \"plotNumber\": \"{{plotNumber}}\",\n    \"street\": \"{{street}}\",\n    \"state\": \"{{state}}\",\n    \"country\": \"{{country}}\",\n    \"zipCode\": \"{{zipCode}}\"\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/uap/createusers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"createusers"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "42903242-1b9033bc-7f88-41d1-a515-6cb2e35ddc04",
+									"name": "default response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userContactNumber\": 42275402,\n  \"userEmailId\": \"2_RYiA4T-9S7dqMJ_F-6RHRZfSj1R_ysRS3_X-AP4r8Pg_xQ9.Jb6rpckJKHy@gBEWFfP.XqdOaRXIYVIs\",\n  \"userFirstName\": \"nQdtqMnReJA\",\n  \"userLastName\": \"atjgqsSv\",\n  \"userId\": -99249403,\n  \"creationTime\": \"2012-12-10T19:55:18.698Z\",\n  \"lastModTime\": \"2023-09-09T21:03:28.880Z\",\n  \"userAddress\": {\n    \"addressId\": -98570114,\n    \"plotNumber\": \"officia\",\n    \"street\": \"irure ipsum Lorem nulla\",\n    \"state\": \"non aliquip eu\",\n    \"country\": \"laboris do\",\n    \"zipCode\": -86021888\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/createusers",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"createusers"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n  \"userContactNumber\": 42275402,\n  \"userEmailId\": \"2_RYiA4T-9S7dqMJ_F-6RHRZfSj1R_ysRS3_X-AP4r8Pg_xQ9.Jb6rpckJKHy@gBEWFfP.XqdOaRXIYVIs\",\n  \"userFirstName\": \"nQdtqMnReJA\",\n  \"userLastName\": \"atjgqsSv\",\n  \"userId\": -99249403,\n  \"creationTime\": \"2012-12-10T19:55:18.698Z\",\n  \"lastModTime\": \"2023-09-09T21:03:28.880Z\",\n  \"userAddress\": {\n    \"addressId\": -98570114,\n    \"plotNumber\": \"officia\",\n    \"street\": \"irure ipsum Lorem nulla\",\n    \"state\": \"non aliquip eu\",\n    \"country\": \"laboris do\",\n    \"zipCode\": -86021888\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "PostAuthTestCases",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6d5703d3-e726-4a45-921b-e8a60958168d",
+										"exec": [
+											"// Retrieve data from iteration (data file or manually provided body)\r",
+											"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+											"const caseType = pm.iterationData.get(\"caseType\");\r",
+											"\r",
+											"// Expected user data for positive tests\r",
+											"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+											"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+											"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+											"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+											"const expectedStreet = pm.iterationData.get(\"street\");\r",
+											"const expectedState = pm.iterationData.get(\"state\");\r",
+											"const expectedCountry = pm.iterationData.get(\"country\");\r",
+											"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+											"\r",
+											"// Convert to number just in case\r",
+											"const actualStatusCode = pm.response.code;\r",
+											"const expectedStatusCode = Number(expectedStatus);\r",
+											"\r",
+											"// Log both for debugging\r",
+											"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+											"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+											"\r",
+											"// -----------------  Status Code Assertion -----------------\r",
+											"pm.test(\"Status code matches expected\", function () {\r",
+											"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+											"});\r",
+											"\r",
+											"// ----------------- Response Body Validations -----------------\r",
+											"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+											"    const jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"Response contains expected user details\", function () {\r",
+											"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+											"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+											"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+											"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+											"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+											"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+											"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+											"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+											"    });\r",
+											"} else if (actualStatusCode === 400) {\r",
+											"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"400 Response:\", jsonData);\r",
+											"        // Optionally assert error message if your API returns it\r",
+											"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+											"    });\r",
+											"} else if (actualStatusCode === 409) {\r",
+											"    pm.test(\"Conflict - User already exists\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"409 Response:\", jsonData);\r",
+											"        // Optionally assert error message\r",
+											"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+											"    });\r",
+											"} else {\r",
+											"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+											"}\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-ead8877a-be71-4df7-8a9b-9b9521530c46",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/uap/createusers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"createusers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a SingleUser",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b30f758b-39cf-4a31-b79f-379f51d1608a",
+										"exec": [
+											"// Retrieve data from iteration (data file or manually provided body)\r",
+											"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+											"const caseType = pm.iterationData.get(\"caseType\");\r",
+											"\r",
+											"// Expected user data for positive tests\r",
+											"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+											"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+											"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+											"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+											"const expectedStreet = pm.iterationData.get(\"street\");\r",
+											"const expectedState = pm.iterationData.get(\"state\");\r",
+											"const expectedCountry = pm.iterationData.get(\"country\");\r",
+											"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+											"\r",
+											"// Convert to number just in case\r",
+											"const actualStatusCode = pm.response.code;\r",
+											"const expectedStatusCode = Number(expectedStatus);\r",
+											"\r",
+											"// Log both for debugging\r",
+											"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+											"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+											"\r",
+											"// -----------------  Status Code Assertion -----------------\r",
+											"pm.test(\"Status code matches expected\", function () {\r",
+											"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+											"});\r",
+											"\r",
+											"// ----------------- Response Body Validations -----------------\r",
+											"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+											"    const jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"Response contains expected user details\", function () {\r",
+											"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+											"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+											"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+											"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+											"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+											"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+											"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+											"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+											"    });\r",
+											"} else if (actualStatusCode === 400) {\r",
+											"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"400 Response:\", jsonData);\r",
+											"        // Optionally assert error message if your API returns it\r",
+											"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+											"    });\r",
+											"} else if (actualStatusCode === 409) {\r",
+											"    pm.test(\"Conflict - User already exists\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"409 Response:\", jsonData);\r",
+											"        // Optionally assert error message\r",
+											"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+											"    });\r",
+											"} else {\r",
+											"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+											"}\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-54e45c0a-01e1-44d9-beaf-54547fb9c96e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userContactNumber\": \"5512998809\",\r\n    \"userEmailId\": \"prin@gmail.com\",\r\n    \"userFirstName\": \"priya\",\r\n    \"userLastName\": \"Hem\",\r\n    \"userAddress\":{\r\n    \"plotNumber\": \"p1-56\",\r\n    \"street\": \"Garden\",\r\n    \"state\": \"NJ\",\r\n    \"country\": \"USA\",\r\n    \"zipCode\": 56565\r\n    }\r\n   }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/uap/createusers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"createusers"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "42903242-89cfdb1e-e2e6-4c10-ba94-5d51452587f1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c2ffeaf1-ce9a-4b1c-8ffe-9e6037c1011a",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "11b04769-9947-4d00-b9e8-530b30bd52f3",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								]
+							}
+						}
+					]
+				}
+			],
+			"id": "42903242-8de79c0e-c683-4c41-8cb4-c65fc6f1e456",
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "username",
+						"value": "Numpy@gmail.com",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "userapi@2025",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e6e0549b-d107-45ba-ab4c-15d2af211e70",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "50e613a4-e12f-490d-bdb6-3a94d4c595bb",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "9ee1c3cb-8a5b-4589-aaff-9774077b4096",
+			"key": "baseUrl",
+			"value": "https://userserviceapp-f5a54828541b.herokuapp.com"
+		}
+	]
+}
