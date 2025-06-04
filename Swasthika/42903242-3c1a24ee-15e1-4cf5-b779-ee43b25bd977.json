@@ -774,6 +774,38 @@
 									"response": []
 								},
 								{
+									"name": "UpdateUserLastName Copy",
+									"id": "42903242-6defa495-7ffd-465a-8d7f-7a9bf6da47a4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n  \"userLastName\": \"{{user_last_name}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"{{userId}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
 									"name": "UpdateUserEmailId",
 									"id": "42903242-034885d9-3488-442e-a6fc-b88c8de82641",
 									"protocolProfileBehavior": {
