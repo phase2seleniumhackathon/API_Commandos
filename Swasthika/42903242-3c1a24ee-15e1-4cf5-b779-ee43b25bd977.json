@@ -1634,6 +1634,66 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "UpdateUserzipCode Copy",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "ea880ffa-6e76-4cd4-97cc-8ac9a65b14d0",
+												"exec": [
+													"// Before Request\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomZipCode = '9' + Math.random().toString().substring(2, 5);\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random_zip_code\", randomZipCode);\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Zip Code:\", randomZipCode);"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "42903242-562cc46b-694a-4270-8c44-6f36a3927049",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {
+											"content-type": true
+										}
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"zipCode\":\"{{random_zip_code}}\"\r\n}\r\n}\r\n"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"uap",
+												"updateuserfields",
+												"23776"
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "42903242-485c2b98-a8e6-4736-8468-0eafb904af92",
