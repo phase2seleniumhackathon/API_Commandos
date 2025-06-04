@@ -1005,6 +1005,36 @@
 								},
 								{
 									"name": "Update InavlidContactNumber",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "0da489af-4804-41d5-943a-2ee14637796a",
+												"exec": [
+													"var random = Math.random().toString().substring(2, 12);\r",
+													"\r",
+													"\r",
+													"// Generate phone number: starts with 9 + 9 random digits\r",
+													"let randomPhone = '9' + Math.random().toString().substring(2, 13);\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"// Save to environment\r",
+													"pm.environment.set(\"random\", random);\r",
+													"pm.environment.set(\"random_phone\", randomPhone);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Phone Number:\", randomPhone);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "42903242-c722bd45-db94-456a-a6c3-5ce7837e857a",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
