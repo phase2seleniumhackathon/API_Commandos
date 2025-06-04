@@ -887,6 +887,30 @@
 								},
 								{
 									"name": "Update InvalidEmailId",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "d1282200-6cc6-45ac-b5b5-65543bb9357f",
+												"exec": [
+													"// Use the random string for other fields\r",
+													"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+													"\r",
+													"\r",
+													"\r",
+													"pm.environment.set(\"user_email\", useremail);\r",
+													"\r",
+													"\r",
+													"// Debug output\r",
+													"\r",
+													"console.log(\"Email:\", useremail);\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "42903242-c53c68f3-679a-47eb-816e-e14a384baab2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
