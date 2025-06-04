@@ -1383,7 +1383,7 @@
 													"}\r",
 													"\r",
 													"// Generate names\r",
-													"var usrState = generateRandomName(3); // e.g., \"Zogmir\"\r",
+													"var usrState = generateRandomName(3)+\"@\"; // e.g., \"Zogmir\"\r",
 													"\r",
 													"// Save to environment\r",
 													"\r",
