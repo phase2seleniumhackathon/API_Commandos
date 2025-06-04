@@ -893,11 +893,11 @@
 											"script": {
 												"id": "d1282200-6cc6-45ac-b5b5-65543bb9357f",
 												"exec": [
-													"// Use the random string for other fields\r",
+													"var random = Math.random().toString().substring(2, 12);// Use the random string for other fields\r",
 													"var useremail = \"jim\" + random + \"@@\"+\"@gmail.com\";\r",
 													"\r",
 													"\r",
-													"\r",
+													"pm.environment.set(\"random\", random);\r",
 													"pm.environment.set(\"user_email\", useremail);\r",
 													"\r",
 													"\r",
