@@ -440,14 +440,14 @@
 											}
 										],
 										"url": {
-											"raw": "{{baseUrl}}/uap/user/{{userId}}",
+											"raw": "{{baseUrl}}/uap/user/{{usrId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"user",
-												"{{userId}}"
+												"{{usrId}}"
 											]
 										}
 									},
