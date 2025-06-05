@@ -3237,7 +3237,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"raw": "{\r\n  \"userContactNumber\": \"{{userContactNumber}}\",\r\n  \"userEmailId\": \"{{userEmailId}}\",\r\n  \"userFirstName\": \"{{userFirstName}}\",\r\n  \"userLastName\": \"{{userLastName}}\",\r\n  \"userAddress\": {\r\n    \"plotNumber\": \"{{plotNumber}}\",\r\n    \"street\": \"{{street}}\",\r\n    \"state\": \"{{state}}\",\r\n    \"country\": \"{{country}}\",\r\n    \"zipCode\": \"{{zipCode}}\"\r\n  }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
