@@ -923,25 +923,8 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "2305f673-5370-40c5-8284-9f225cd72d87",
+												"id": "bfe36e3d-35e6-4fdc-88e2-7ef6984dc341",
 												"exec": [
-													"var random = Math.random().toString().substring(2, 12);\r",
-													"\r",
-													"\r",
-													"// Generate phone number: starts with 9 + 9 random digits\r",
-													"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
-													"\r",
-													"\r",
-													"\r",
-													"\r",
-													"// Save to environment\r",
-													"pm.environment.set(\"random\", random);\r",
-													"pm.environment.set(\"random_phone\", randomPhone);\r",
-													"\r",
-													"\r",
-													"// Debug output\r",
-													"\r",
-													"console.log(\"Phone Number:\", randomPhone);\r",
 													""
 												],
 												"type": "text/javascript",
@@ -1595,17 +1578,17 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\"userAddress\":\r\n{\r\n\r\n  \"zipCode\":\"{{random_zip_code}}\"\r\n}\r\n}\r\n"
+											"raw": "{\r\n\"userAddress\":\r\n{\r\n  \"zipCode\":\"{{random_zip_code}}\"\r\n}\r\n}\r\n"
 										},
 										"url": {
-											"raw": "{{baseUrl}}/uap/updateuserfields/23776",
+											"raw": "{{baseUrl}}/uap/updateuserfields/{{userId}}",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"uap",
 												"updateuserfields",
-												"23776"
+												"{{userId}}"
 											]
 										}
 									},
@@ -1678,7 +1661,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "f8e6c5c9-d9bd-45ee-b5c6-e311fbf30119",
+										"id": "1275e619-4fef-4b6d-a4c5-dbfe5c7f236c",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
@@ -1705,9 +1688,6 @@
 											"// Generate phone number: starts with 9 + 9 random digits\r",
 											"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
 											"\r",
-											"//Random Plot Number\r",
-											"let randomPlot = \"p1\" +\"-\"+Math.random().toString().substring(2, 4);\r",
-											"pm.environment.set(\"random_plot\", randomPlot);\r",
 											"\r",
 											"\r",
 											"\r",
@@ -1717,21 +1697,21 @@
 											"pm.environment.set(\"user_last_name\", usrLastName);\r",
 											"pm.environment.set(\"user_email\", useremail);\r",
 											"pm.environment.set(\"random_phone\", randomPhone);\r",
-											"pm.environment.set(\"random_plot\",randomPlot)\r",
+											"\r",
 											"\r",
 											"// Debug output\r",
 											"console.log(\"First Name:\", usrFirstName);\r",
 											"console.log(\"Last Name:\", usrLastName);\r",
 											"console.log(\"Email:\", useremail);\r",
 											"console.log(\"Phone Number:\", randomPhone);\r",
-											"console.log(\"Plot Number:\",randomPlot);"
+											""
 										]
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
-										"id": "2ad6551c-6ee9-4a55-8d88-eedc32d2256f",
+										"id": "3f1b8fe1-efbc-49af-959a-5b205bfe36f0",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
