@@ -3087,6 +3087,442 @@
 						}
 					],
 					"id": "42903242-88be3b64-ec4e-4b29-ba1a-37b952be5b53"
+				},
+				{
+					"name": "CreateGetUpdateGetDelete Randomdata Copy",
+					"item": [
+						{
+							"name": "New Request",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d51692b1-27a1-4f5c-9cc7-4a65467a3b80",
+										"exec": [
+											"var random = Math.random().toString().substring(2, 12);\r",
+											"// Function to generate a random alphabetic string of given length\r",
+											"function generateRandomName(length) {\r",
+											"    const letters = 'abcdefghijklmnopqrstuvwxyz';\r",
+											"    let result = '';\r",
+											"    for (let i = 0; i < length; i++) {\r",
+											"        result += letters.charAt(Math.floor(Math.random() * letters.length));\r",
+											"    }\r",
+											"    return result.charAt(0).toUpperCase() + result.slice(1); // Capitalize first letter\r",
+											"}\r",
+											"\r",
+											"// Generate names\r",
+											"var usrFirstName = generateRandomName(6); // e.g., \"Zogmir\"\r",
+											"var usrLastName = generateRandomName(8);  // e.g., \"Lanfrost\"\r",
+											"\r",
+											"// Use the random string for other fields\r",
+											"var useremail = \"jim\" + random + \"@gmail.com\";\r",
+											"\r",
+											"// Generate phone number: starts with 9 + 9 random digits\r",
+											"let randomPhone = '9' + Math.random().toString().substring(2, 11);\r",
+											"\r",
+											"// Save to environment\r",
+											"pm.environment.set(\"random\", random);\r",
+											"pm.environment.set(\"user_first_name\", usrFirstName);\r",
+											"pm.environment.set(\"user_last_name\", usrLastName);\r",
+											"pm.environment.set(\"user_email\", useremail);\r",
+											"pm.environment.set(\"random_phone\", randomPhone);\r",
+											"\r",
+											"// Debug output\r",
+											"console.log(\"First Name:\", usrFirstName);\r",
+											"console.log(\"Last Name:\", usrLastName);\r",
+											"console.log(\"Email:\", useremail);\r",
+											"console.log(\"Phone Number:\", randomPhone);\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "692bacb5-0e3a-4302-a892-bcc426ba9a2d",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set(\"usrId\", jsonData.userId);\r",
+											"\r",
+											"pm.environment.set(\"usrFirstName\", jsonData.userFirstName);\r",
+											"\r",
+											"// Retrieve data from iteration (data file or manually provided body)\r",
+											"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+											"const caseType = pm.iterationData.get(\"caseType\");\r",
+											"\r",
+											"// Expected user data for positive tests\r",
+											"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+											"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+											"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+											"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+											"const expectedStreet = pm.iterationData.get(\"street\");\r",
+											"const expectedState = pm.iterationData.get(\"state\");\r",
+											"const expectedCountry = pm.iterationData.get(\"country\");\r",
+											"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+											"\r",
+											"// Convert to number just in case\r",
+											"const actualStatusCode = pm.response.code;\r",
+											"const expectedStatusCode = Number(expectedStatus);\r",
+											"\r",
+											"// Log both for debugging\r",
+											"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+											"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+											"\r",
+											"// -----------------  Status Code Assertion -----------------\r",
+											"pm.test(\"Status code matches expected\", function () {\r",
+											"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+											"});\r",
+											"\r",
+											"// ----------------- Response Body Validations -----------------\r",
+											"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+											"    const jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"Response contains expected user details\", function () {\r",
+											"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+											"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+											"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+											"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+											"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+											"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+											"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+											"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+											"    });\r",
+											"} else if (actualStatusCode === 400) {\r",
+											"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"400 Response:\", jsonData);\r",
+											"        // Optionally assert error message if your API returns it\r",
+											"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+											"    });\r",
+											"} else if (actualStatusCode === 409) {\r",
+											"    pm.test(\"Conflict - User already exists\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"409 Response:\", jsonData);\r",
+											"        // Optionally assert error message\r",
+											"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+											"    });\r",
+											"} else {\r",
+											"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+											"}\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-9219c3dc-9d58-44dd-b502-760b22d256c2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userContactNumber\": {{random_phone}},\r\n  \"userEmailId\": \"{{user_email}}\",\r\n  \"userFirstName\": \"{{user_first_name}}\",\r\n  \"userLastName\": \"{{user_last_name}}\",\r\n  \r\n    \"userAddress\": {\r\n    \"plotNumber\": \"pl-04\",\r\n    \"street\": \"wholefoods\",\r\n    \"state\": \"PA\",\r\n    \"country\": \"US\",\r\n    \"zipCode\": 15741\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/uap/createusers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"createusers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ded22dc2-655c-4c42-bcf9-bad823a5635d",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set(\"userId\", jsonData.userId);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-d6e7cf88-472c-478a-baab-69f41d0c09a0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/uap/users/username/{{usrFirstName}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"users",
+										"username",
+										"{{usrFirstName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f8e18c5f-3cc5-4384-9757-fba99c70952f",
+										"exec": [
+											"// Retrieve data from iteration (data file or manually provided body)\r",
+											"const expectedStatus = pm.iterationData.get(\"expectedStatus\"); // Number (e.g., 200)\r",
+											"const caseType = pm.iterationData.get(\"caseType\");\r",
+											"\r",
+											"// Expected user data for positive tests\r",
+											"const expectedFirstName = pm.iterationData.get(\"userFirstName\");\r",
+											"const expectedLastName = pm.iterationData.get(\"userLastName\");\r",
+											"const expectedContactNumber = pm.iterationData.get(\"userContactNumber\");\r",
+											"const expectedEmailId = pm.iterationData.get(\"userEmailId\");\r",
+											"const expectedStreet = pm.iterationData.get(\"street\");\r",
+											"const expectedState = pm.iterationData.get(\"state\");\r",
+											"const expectedCountry = pm.iterationData.get(\"country\");\r",
+											"const expectedZipCode = pm.iterationData.get(\"zipCode\");\r",
+											"\r",
+											"// Convert to number just in case\r",
+											"const actualStatusCode = pm.response.code;\r",
+											"const expectedStatusCode = Number(expectedStatus);\r",
+											"\r",
+											"// Log both for debugging\r",
+											"console.log(\"Expected Status Code:\", expectedStatusCode);\r",
+											"console.log(\"Actual Status Code:\", actualStatusCode);\r",
+											"\r",
+											"// -----------------  Status Code Assertion -----------------\r",
+											"pm.test(\"Status code matches expected\", function () {\r",
+											"    pm.expect(actualStatusCode).to.eql(expectedStatusCode);\r",
+											"});\r",
+											"\r",
+											"// ----------------- Response Body Validations -----------------\r",
+											"if (actualStatusCode === 200 || actualStatusCode === 201) {\r",
+											"    const jsonData = pm.response.json();\r",
+											"\r",
+											"    pm.test(\"Response contains expected user details\", function () {\r",
+											"        pm.expect(jsonData.userFirstName).to.eql(expectedFirstName);\r",
+											"        pm.expect(jsonData.userLastName).to.eql(expectedLastName);\r",
+											"        pm.expect(jsonData.userContactNumber).to.eql(expectedContactNumber);\r",
+											"        pm.expect(jsonData.userEmailId).to.eql(expectedEmailId);\r",
+											"        pm.expect(jsonData.street).to.eql(expectedStreet);\r",
+											"        pm.expect(jsonData.state).to.eql(expectedState);\r",
+											"        pm.expect(jsonData.country).to.eql(expectedCountry);\r",
+											"        pm.expect(jsonData.zipCode).to.eql(expectedZipCode);\r",
+											"    });\r",
+											"} else if (actualStatusCode === 400) {\r",
+											"    pm.test(\"Bad Request - missing or invalid fields\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"400 Response:\", jsonData);\r",
+											"        // Optionally assert error message if your API returns it\r",
+											"        // pm.expect(jsonData.message).to.include(\"missing\");\r",
+											"    });\r",
+											"} else if (actualStatusCode === 409) {\r",
+											"    pm.test(\"Conflict - User already exists\", function () {\r",
+											"        const jsonData = pm.response.json();\r",
+											"        console.warn(\"409 Response:\", jsonData);\r",
+											"        // Optionally assert error message\r",
+											"        // pm.expect(jsonData.message).to.include(\"already exists\");\r",
+											"    });\r",
+											"} else {\r",
+											"    console.warn(\"Unhandled status code: \" + actualStatusCode);\r",
+											"}\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"//validation for headers\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\",\"application/json\");\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-43b2386a-bd5f-4228-8df5-cff42bb06ea2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n  \"userLastName\": \"Ghosh\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/uap/updateuserfields/{{usrId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"updateuserfields",
+										"{{usrId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2ad0b830-967e-4407-ae44-62ab76cd74dd",
+										"exec": [
+											"let jsonData = pm.response.json();\r",
+											"pm.environment.set(\"userId\", jsonData.userId);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "42903242-35fe375d-846b-491b-9e23-d70a67cd4aee",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/uap/users/username/{{usrFirstName}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"users",
+										"username",
+										"{{usrFirstName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "42903242-1d889f61-f1c8-40ab-a7f4-3bccdb6d9da2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/uap/deleteuser/{{usrId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"deleteuser",
+										"{{usrId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"id": "42903242-89e46dfa-0295-42c2-9ae6-23a504655beb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/uap/users/username/{{usrFirstName}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"uap",
+										"users",
+										"username",
+										"{{usrFirstName}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "42903242-4c86e0a1-b106-4b31-bc49-07998f8b9a91"
 				}
 			],
 			"id": "42903242-8de79c0e-c683-4c41-8cb4-c65fc6f1e456",
